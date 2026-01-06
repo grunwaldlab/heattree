@@ -1,0 +1,12 @@
+# (uncomment to add a dependency)
+dependencies:
+  - name: heat-tree
+    version: 0.1.0
+    src: htmlwidgets/lib/heat-tree-0.1.0
+    script:
+      - heat-tree.umd.min.js
+    meta:
+      exports:
+        - heatTree
+    stylesheet:
+      - heat_tree.css

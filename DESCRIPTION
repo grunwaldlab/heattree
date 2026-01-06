@@ -1,0 +1,17 @@
+Package: heattree
+Type: Package
+Title: A wrapper for the javascript `heat-tree` package for interactive phylogenetic tree visualization widgets
+Version: 0.1.0
+Imports: htmlwidgets
+Authors@R: c(
+    person(
+      "Zachary", "Foster",
+      email = "zacharyfoster1989@gmail.com",
+      role = c("aut", "cre")
+    )
+  )
+Description: A self-contained widget for phylogenetic and taxonomic tree visualization with categorical and continuous variables associated with nodes and tips
+License: MIT
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.3.3
