@@ -8,5 +8,3 @@ dependencies:
     meta:
       exports:
         - heatTree
-    stylesheet:
-      - heat_tree.css

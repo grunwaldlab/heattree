@@ -13,22 +13,144 @@ df_to_tsv <- function(df) {
   )
 }
 
-#' @param width   Width of the widget (CSS units or number).
-#' @param height  Height of the widget (CSS units or number).
+
+#' @param tree One or more trees to plot. Can be a raw newick-formatted string,
+#'   a `phylo` object, or a list of such inputs. If a list is provided, its
+#'   names will be used to name trees.
+#' @param metadata Metadata associated with `tree`. Can be a `data.frame` or
+#'   `tibble` with a "node_id" column. If there are multiple trees (a list),
+#'   then a list of table of equal length is required. If a list is provided,
+#'   its names will be used to name metadata tables.
+#' @param aesthetics A named character vector defining which metadata columns
+#'   are initially used to color/size tree parts. If there are multiple trees (a
+#'   list), then a list of equal length is required.
+#' @param width Width of the widget (CSS units or number).
+#' @param height Height of the widget (CSS units or number).
 #' @param elementId Optional element ID for the widget.
+#' @param ... Options passed to options parameter of the underlying `HeatTree.heatTree()` javascript
+#'   function to modify the initial state of the widget.
 #'
 #' @import htmlwidgets
 #'
 #' @export
-heat_tree <- function(width = NULL, height = NULL, elementId = NULL) {
+heat_tree <- function(tree = NULL, metadata = NULL, aesthetics = NULL, width = NULL, height = NULL, elementId = NULL, ...) {
+
+  validate_input <- function(input) {
+    if (inherits(input, "phylo")) {
+      return(ape::write.tree(input))
+    } else if (is.character(input) && length(input) == 1) {
+      if (file.exists(input)) {
+        return(paste0(readLines(input), collapse = ''))
+      } else {
+        return(input)
+      }
+    } else {
+      stop(call. = FALSE, 'Invalid input format. Must be a newick string, file path, or phylo object.')
+    }
+  }
+
+  # Normalize tree input to a list
+  if (length(tree) == 0) {
+    tree_list <- list()
+  } else {
+    if (inherits(tree, "phylo") || ! is.list(tree)) {
+      tree <- list(tree)
+    }
+    tree_list <- lapply(tree, validate_input)
+  }
+
+  # Get tree names
+  tree_names <- names(tree_list)
+  if (is.null(tree_names)) {
+    tree_names <- paste0("tree ", seq_along(tree_list))
+  }
+
+  # Normalize metadata to a list
+  if (is.null(metadata)) {
+    metadata_list <- vector("list", length(tree_list))
+  } else if (is.data.frame(metadata)) {
+    # Single data frame
+    metadata_list <- list(metadata)
+  } else if (is.list(metadata)) {
+    metadata_list <- metadata
+  } else {
+    stop("metadata must be a data.frame or list of data.frames")
+  }
+
+  # Ensure metadata_list has same length as tree_list
+  if (length(metadata_list) > 0 && length(metadata_list) != length(tree_list)) {
+    stop("metadata list must have same length as tree list")
+  }
+
+  # Normalize aesthetics to a list
+  if (is.null(aesthetics)) {
+    aesthetics_list <- vector("list", length(tree_list))
+  } else if (is.character(aesthetics) || (is.list(aesthetics) && !is.null(names(aesthetics)) && all(sapply(aesthetics, function(x) is.character(x) && length(x) == 1)))) {
+    # Single named vector
+    aesthetics_list <- list(aesthetics)
+  } else if (is.list(aesthetics)) {
+    aesthetics_list <- aesthetics
+  } else {
+    stop("aesthetics must be a named character vector or list of such vectors")
+  }
+
+  # Ensure aesthetics_list has same length as tree_list
+  if (length(aesthetics_list) > 0 && length(aesthetics_list) != length(tree_list)) {
+    stop("aesthetics list must have same length as tree list")
+  }
+
+  # Build tree data structure for JavaScript
+  trees_data <- lapply(seq_along(tree_list), function(i) {
+    tree_obj <- list(
+      name = tree_names[i],
+      newick = tree_list[[i]]
+    )
+
+    # Add metadata if present
+    if (length(metadata_list) >= i && !is.null(metadata_list[[i]])) {
+      metadata_df <- metadata_list[[i]]
+      metadata_names <- names(metadata_list)
+      metadata_name <- if (!is.null(metadata_names) && nchar(metadata_names[i]) > 0) {
+        metadata_names[i]
+      } else {
+        paste0("metadata ", i)
+      }
+
+      # Convert data frame to TSV format
+      metadata_tsv <- df_to_tsv(metadata_df)
+
+      tree_obj$metadata <- list(
+        list(
+          name = metadata_name,
+          data = metadata_tsv
+        )
+      )
+    }
+
+    # Add aesthetics if present
+    if (length(aesthetics_list) >= i && !is.null(aesthetics_list[[i]])) {
+      tree_obj$aesthetics <- as.list(aesthetics_list[[i]])
+    }
+
+    tree_obj
+  })
+
+  # Collect additional options
+  options <- list(...)
+
+  # Create widget data
+  x <- list(
+    trees = trees_data,
+    options = options
+  )
 
   createWidget(
     name = 'heat_tree',
-    x = NULL,
+    x = x,
     width = width,
     height = height,
     package = 'heattree',
-    elementId = 'heat_tree_widget'
+    elementId = elementId
   )
 }
 
