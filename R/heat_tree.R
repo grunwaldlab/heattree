@@ -35,7 +35,8 @@ df_to_tsv <- function(df) {
 #' @export
 heat_tree <- function(tree = NULL, metadata = NULL, aesthetics = NULL, width = NULL, height = NULL, elementId = NULL, ...) {
 
-  validate_input <- function(input) {
+  # Normalize tree input to a list
+  validate_tree_input <- function(input) {
     if (inherits(input, "phylo")) {
       return(ape::write.tree(input))
     } else if (is.character(input) && length(input) == 1) {
@@ -45,18 +46,16 @@ heat_tree <- function(tree = NULL, metadata = NULL, aesthetics = NULL, width = N
         return(input)
       }
     } else {
-      stop(call. = FALSE, 'Invalid input format. Must be a newick string, file path, or phylo object.')
+      stop(call. = FALSE, 'Invalid tree format. Must be a newick string, file path, or phylo object.')
     }
   }
-
-  # Normalize tree input to a list
   if (length(tree) == 0) {
     tree_list <- list()
   } else {
     if (inherits(tree, "phylo") || ! is.list(tree)) {
       tree <- list(tree)
     }
-    tree_list <- lapply(tree, validate_input)
+    tree_list <- lapply(tree, validate_tree_input)
   }
 
   # Get tree names
@@ -66,15 +65,28 @@ heat_tree <- function(tree = NULL, metadata = NULL, aesthetics = NULL, width = N
   }
 
   # Normalize metadata to a list
-  if (is.null(metadata)) {
+  validate_metadata_input <- function(input) {
+    if (inherits(input, "data.frame")) {
+      return(input)
+    } else if (is.character(input) && length(input) == 1 && file.exists(input)) {
+      if (endsWith(input, '.tsv')) {
+        return(read.csv(input, sep = '\t'))
+      } else if (endsWith(input, '.csv')) {
+        return(read.csv(input, sep = ','))
+      } else {
+        stop(call. = FALSE, 'Invalid metadata format. Paths to metadata files must end in .tsv or .csv and be in the corresponding format.')
+      }
+    } else {
+      stop(call. = FALSE, 'Invalid metadata format. Metadata must be a path to a TSV/CSV file or a data.frame/tibble.')
+    }
+  }
+  if (length(metadata) == 0) {
     metadata_list <- vector("list", length(tree_list))
-  } else if (is.data.frame(metadata)) {
-    # Single data frame
-    metadata_list <- list(metadata)
-  } else if (is.list(metadata)) {
-    metadata_list <- metadata
   } else {
-    stop("metadata must be a data.frame or list of data.frames")
+    if (inherits(metadata, "data.frame") || ! is.list(metadata)) {
+      metadata <- list(metadata)
+    }
+    metadata_list <- lapply(metadata, validate_metadata_input)
   }
 
   # Ensure metadata_list has same length as tree_list

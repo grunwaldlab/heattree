@@ -1,0 +1,153 @@
+---
+output: github_document
+params:
+  interactive: false
+---
+
+```{r setup, include=FALSE}
+library(heattree)
+fig_width = 600
+fig_height = 600
+knitr::opts_chunk$set(message = FALSE)
+```
+
+
+# The `heattree` R package 
+
+A wrapper for the javascript [`heat-tree`](https://www.npmjs.com/package/@grunwaldlab/heat-tree) package for interactive phylogenetic tree visualization widgets.
+
+
+## Installation
+
+For now, `heattree` is only available on Github and can be installed with `devtools`:
+
+```{r eval=FALSE}
+devtools::install_github('grunwaldlab/heattree')
+```
+
+
+## Quick start
+
+The package includes example data sets so you can try it out with minimal effort.
+After installing the packages, simply run the lines below to get an idea of how it works:
+
+```{r include=FALSE}
+library(heattree)
+heat_tree(example_tree_1, metadata = example_metadata_1, aesthetics = c(tipLabelColor = 'source'), layout = 'circular')
+```
+
+```{r echo=FALSE}
+heat_tree(example_tree_1, metadata = example_metadata_1, aesthetics = c(tipLabelColor = 'source'), layout = 'circular', width = fig_width, height = fig_height)
+```
+
+
+You will have the option to interactively upload your own trees/metadata in the widgets menu as well.
+
+## Basic Usage
+
+This package is designed to be as simple to use as possible while also allowing for advanced customization.
+In fact, since you can upload tree and metadata interactively, it is entirely valid to create a widget with no input: 
+
+```{r include=FALSE}
+library(heattree)
+heat_tree()
+```
+
+You can also supply trees/metadata to plot when the widget in created.
+The following types of input data are currently supported:
+
+- Paths to newick files
+- Newick-formatted text (a character vector with a single item)
+- `phylo` objects from the `ape` package
+
+For example, here is the test data included in the package in these three formats: 
+
+```{r}
+example_tree_path <- system.file('extdata', 'example_tree_1.treefile', package = 'heattree')
+print(example_tree_path)
+example_text <- readLines(example_tree_path)
+print(example_text)
+example_phylo <- ape::read.tree(example_tree_path)
+print(example_phylo)
+```
+
+These three commands all produce the same plot:
+
+```{r eval=FALSE}
+heat_tree(example_tree_path)
+heat_tree(example_text)
+heat_tree(example_phylo)
+```
+
+```{r echo=FALSE}
+heat_tree(example_tree_path, width = fig_width, height = fig_height)
+```
+
+You can also supply metadata for the tree by supplying a path to a TSV/CSV or a `data.frame`/`tibble`.
+
+This table must have a "node_id" column with values matching the IDs in the treefile.
+For example, this data is associated with the above example tree:
+
+```{r}
+example_metadata_path <- system.file('extdata', 'example_metadata_1.tsv', package = 'heattree')
+print(example_metadata_path)
+example_metadata <- readr::read_tsv(example_metadata_path)
+print(example_metadata)
+```
+
+Similar to tree input, both paths and parsed data are accepted.
+Metadata can be used to color or size tree elements, similar to how `ggplot2` works.
+The `aesthetics` parameter is used to specify which columns correspond to which aesthetics.
+These two commands produce the same plot:
+
+```{r eval=FALSE}
+heat_tree(example_tree_path, metadata = example_metadata_path, aesthetics = c(tipLabelColor = 'source'))
+heat_tree(example_tree_path, metadata = example_metadata, aesthetics = c(tipLabelColor = 'source'))
+```
+
+```{r echo=FALSE}
+heat_tree(example_tree_path, metadata = example_metadata, aesthetics = c(tipLabelColor = 'source'), width = fig_width, height = fig_height)
+```
+
+Check the [`heat-tree`](https://www.npmjs.com/package/@grunwaldlab/heat-tree) javascript package documentation for the list of valid aesthetics.
+
+
+## Initial settings
+
+Although the widget is primarily designed for interactive use, the initial settings can be set programmatically.
+All of the value of options described in the [`heat-tree`](https://www.npmjs.com/package/@grunwaldlab/heat-tree) javascript package documentation can be used as optional parameters.
+For example, the layout can be changed to circular like so:
+
+```{r eval=FALSE}
+heat_tree(example_phylo, layout = 'circular')
+```
+
+```{r echo=FALSE}
+heat_tree(example_phylo, layout = 'circular', width = fig_width, height = fig_height)
+```
+
+
+## Multiple trees
+
+The `heat_tree` widget is capable of managing multiple trees at once.
+To initialize a widget with multiple trees, supply lists of tree and metadata inputs.
+If metadata/aesthetics are also supplied they must a list as well that corresponds to the list of trees.
+For example:
+
+```{r eval=FALSE}
+heat_tree(
+  tree = list(tree_1, tree_2),
+  metadata = list(metadata_1, metadata_2),
+  aesthetics = list(NULL, c(tipLabelColor = 'source')
+)
+```
+
+
+## License
+
+MIT
+
+
+## Contributing
+
+Contributions are welcome! Please visit the [GitHub repository](https://github.com/grunwaldlab/heattree) to report issues or submit pull requests.
