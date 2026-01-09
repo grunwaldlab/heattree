@@ -4,6 +4,8 @@
 
 - **Zachary Foster**. Author, maintainer.
 
+- **Niklaus Grunwald**. Funder.
+
 ## Citation
 
 Foster Z (2026). *heattree: A wrapper for the javascript 'heat-tree'

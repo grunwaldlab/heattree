@@ -1,8 +1,9 @@
 pandoc: 3.1.11
 pkgdown: 2.2.0
 pkgdown_sha: ~
-articles: {}
-last_built: 2026-01-09T18:14Z
+articles:
+  articles/Getting-started: Getting-started.html
+last_built: 2026-01-09T20:50Z
 urls:
   reference: https://grunwaldlab.github.io/heattree/reference
   article: https://grunwaldlab.github.io/heattree/articles
