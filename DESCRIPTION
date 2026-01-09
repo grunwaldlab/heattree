@@ -10,6 +10,11 @@ Authors@R: c(
       "Zachary", "Foster",
       email = "zacharyfoster1989@gmail.com",
       role = c("aut", "cre")
+    ),
+    person(
+      "Niklaus", "Grunwald",
+      email = "grunwaln@science.oregonstate.edu",
+      role = c("fnd")
     )
   )
 Description: A self-contained widget for phylogenetic and taxonomic tree visualization with categorical and continuous variables associated with nodes and tips
@@ -20,3 +25,4 @@ RoxygenNote: 7.3.3
 Depends: 
     R (>= 3.5)
 URL: https://grunwaldlab.github.io/heattree/
+Config/Needs/website: rmarkdown
