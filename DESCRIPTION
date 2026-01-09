@@ -1,7 +1,7 @@
 Package: heattree
 Type: Package
 Title: A wrapper for the javascript `heat-tree` package for interactive phylogenetic tree visualization widgets
-Version: 0.1.0
+Version: 0.1.2
 Imports: 
     ape,
     htmlwidgets

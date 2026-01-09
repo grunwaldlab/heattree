@@ -1,7 +1,5 @@
 ---
 output: github_document
-params:
-  interactive: false
 ---
 
 ```{r setup, include=FALSE}
@@ -31,7 +29,7 @@ devtools::install_github('grunwaldlab/heattree')
 The package includes example data sets so you can try it out with minimal effort.
 After installing the packages, simply run the lines below to get an idea of how it works:
 
-```{r include=FALSE}
+```{r eval=FALSE}
 library(heattree)
 heat_tree(example_tree_1, metadata = example_metadata_1, aesthetics = c(tipLabelColor = 'source'), layout = 'circular')
 ```
@@ -48,7 +46,7 @@ You will have the option to interactively upload your own trees/metadata in the 
 This package is designed to be as simple to use as possible while also allowing for advanced customization.
 In fact, since you can upload tree and metadata interactively, it is entirely valid to create a widget with no input: 
 
-```{r include=FALSE}
+```{r eval=FALSE}
 library(heattree)
 heat_tree()
 ```

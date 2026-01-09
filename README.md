@@ -20,6 +20,11 @@ The package includes example data sets so you can try it out with
 minimal effort. After installing the packages, simply run the lines
 below to get an idea of how it works:
 
+``` r
+library(heattree)
+heat_tree(example_tree_1, metadata = example_metadata_1, aesthetics = c(tipLabelColor = 'source'), layout = 'circular')
+```
+
 ![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
 
 You will have the option to interactively upload your own trees/metadata
@@ -31,6 +36,11 @@ This package is designed to be as simple to use as possible while also
 allowing for advanced customization. In fact, since you can upload tree
 and metadata interactively, it is entirely valid to create a widget with
 no input:
+
+``` r
+library(heattree)
+heat_tree()
+```
 
 You can also supply trees/metadata to plot when the widget in created.
 The following types of input data are currently supported:
