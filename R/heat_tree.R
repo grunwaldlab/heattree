@@ -6,9 +6,8 @@
 #' @export
 df_to_tsv <- function(df) {
   paste(
-    paste(colnames(df), collapse = "\t"),
-    apply(df, 1, function(row) paste(row, collapse = "\t")),
-    sep = "\n",
+    c(paste(colnames(df), collapse = "\t"),
+    apply(df, 1, function(row) paste(row, collapse = "\t"))),
     collapse = "\n"
   )
 }
