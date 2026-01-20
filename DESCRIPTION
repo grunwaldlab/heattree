@@ -26,3 +26,4 @@ Depends:
     R (>= 3.5)
 URL: https://grunwaldlab.github.io/heattree/
 Config/Needs/website: rmarkdown
+Roxygen: list(markdown = TRUE)

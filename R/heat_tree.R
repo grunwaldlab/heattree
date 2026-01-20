@@ -1,9 +1,4 @@
-#' <Add Title>
-#'
-#' <Add Description>
-#'
-#' @param df dataframe
-#' @export
+#' @keywords internal
 df_to_tsv <- function(df) {
   paste(
     c(paste(colnames(df), collapse = "\t"),
@@ -13,6 +8,10 @@ df_to_tsv <- function(df) {
 }
 
 
+#' Create an interactive phylogenetic tree
+#'
+#' Create an interactive phylogenetic tree using the javascript [heat-tree](https://github.com/grunwaldlab/heat-tree) package
+#'
 #' @param tree One or more trees to plot. Can be a raw newick-formatted string,
 #'   a `phylo` object, or a list of such inputs. If a list is provided, its
 #'   names will be used to name trees.
