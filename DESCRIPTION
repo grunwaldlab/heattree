@@ -13,8 +13,8 @@ Authors@R: c(
     ),
     person(
       "Niklaus", "Grunwald",
-      email = "grunwaln@science.oregonstate.edu",
-      role = c("fnd")
+      email = "grunwaln@oregonstate.edu",
+      role = c("aut")
     )
   )
 Description: A self-contained widget for phylogenetic and taxonomic tree visualization with categorical and continuous variables associated with nodes and tips
