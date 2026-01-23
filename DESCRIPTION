@@ -9,12 +9,14 @@ Authors@R: c(
     person(
       "Zachary", "Foster",
       email = "zacharyfoster1989@gmail.com",
-      role = c("aut", "cre")
+      role = c("aut", "cre"),
+      comment = c(ORCID = "0000-0002-5075-0948")
     ),
     person(
       "Niklaus", "Grunwald",
       email = "grunwaln@oregonstate.edu",
-      role = c("aut")
+      role = c("aut"),
+      comment = c(ORCID = "0000-0003-1656-7602")
     )
   )
 Description: A self-contained widget for phylogenetic and taxonomic tree visualization with categorical and continuous variables associated with nodes and tips
