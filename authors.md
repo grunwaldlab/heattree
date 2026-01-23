@@ -3,8 +3,10 @@
 ## Authors
 
 - **Zachary Foster**. Author, maintainer.
+  [](https://orcid.org/0000-0002-5075-0948)
 
 - **Niklaus Grunwald**. Author.
+  [](https://orcid.org/0000-0003-1656-7602)
 
 ## Citation
 
