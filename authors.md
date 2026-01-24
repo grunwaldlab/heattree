@@ -8,6 +8,8 @@
 - **Niklaus Grunwald**. Author.
   [](https://orcid.org/0000-0003-1656-7602)
 
+- **USDA Agricultural Research Service**. Funder.
+
 ## Citation
 
 Foster Z, Grunwald N (2026). *heattree: A wrapper for the javascript
