@@ -17,6 +17,8 @@ Authors@R: c(
       email = "grunwaln@oregonstate.edu",
       role = c("aut"),
       comment = c(ORCID = "0000-0003-1656-7602")
+    ),
+    person("USDA Agricultural Research Service", role = c("fnd")
     )
   )
 Description: A self-contained widget for phylogenetic and taxonomic tree visualization with categorical and continuous variables associated with nodes and tips
