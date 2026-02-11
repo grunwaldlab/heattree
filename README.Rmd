@@ -11,6 +11,10 @@ knitr::opts_chunk$set(
 
 # The `heattree` R package 
 
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/grunwaldlab/heattree/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/grunwaldlab/heattree/actions/workflows/R-CMD-check.yaml)
+<!-- badges: end -->
+
 This package makes it easy to visualize, manipulate, and export phylogenetic trees in R using an interactive viewer/editor.
 You can insert this tree viewer into Rmd/Quarto documents make your trees accessible online.
 If you want to use this for web development outside of R, consider the [javascript `heat-tree` package](https://www.npmjs.com/package/@grunwaldlab/heat-tree) which this package builds upon.

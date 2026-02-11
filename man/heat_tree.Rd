@@ -40,3 +40,13 @@ function to modify the initial state of the widget.}
 \description{
 Create an interactive phylogenetic tree using the javascript \href{https://github.com/grunwaldlab/heat-tree}{heat-tree} package
 }
+\examples{
+# Create an empty tree viewer for loading data interactively
+heat_tree()
+
+# Create a tree viewer with example data included with the package
+tree_path <- system.file('extdata', 'example_tree_1.treefile', package = 'heattree')
+meta_path <- system.file('extdata', 'example_metadata_1.tsv', package = 'heattree')
+heat_tree(tree_path, metadata = meta_path, aesthetics = c(tipLabelColor = 'source'))
+
+}

@@ -28,7 +28,14 @@ df_to_tsv <- function(df) {
 #' @param ... Options passed to options parameter of the underlying `HeatTree.heatTree()` javascript
 #'   function to modify the initial state of the widget.
 #'
-#' @import htmlwidgets
+#' @examples
+#' # Create an empty tree viewer for loading data interactively
+#' heat_tree()
+#'
+#' # Create a tree viewer with example data included with the package
+#' tree_path <- system.file('extdata', 'example_tree_1.treefile', package = 'heattree')
+#' meta_path <- system.file('extdata', 'example_metadata_1.tsv', package = 'heattree')
+#' heat_tree(tree_path, metadata = meta_path, aesthetics = c(tipLabelColor = 'source'))
 #'
 #' @export
 heat_tree <- function(tree = NULL, metadata = NULL, aesthetics = NULL, width = NULL, height = NULL, elementId = NULL, ...) {
@@ -68,9 +75,9 @@ heat_tree <- function(tree = NULL, metadata = NULL, aesthetics = NULL, width = N
       return(input)
     } else if (is.character(input) && length(input) == 1 && file.exists(input)) {
       if (endsWith(input, '.tsv')) {
-        return(read.csv(input, sep = '\t'))
+        return(utils::read.csv(input, sep = '\t'))
       } else if (endsWith(input, '.csv')) {
-        return(read.csv(input, sep = ','))
+        return(utils::read.csv(input, sep = ','))
       } else {
         stop(call. = FALSE, 'Invalid metadata format. Paths to metadata files must end in .tsv or .csv and be in the corresponding format.')
       }
@@ -154,7 +161,7 @@ heat_tree <- function(tree = NULL, metadata = NULL, aesthetics = NULL, width = N
     options = options
   )
 
-  createWidget(
+  htmlwidgets::createWidget(
     name = 'heat_tree',
     x = x,
     width = width,

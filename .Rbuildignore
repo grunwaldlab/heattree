@@ -6,3 +6,14 @@
 ^pkgdown$
 ^\.github$
 ^vignettes/articles$
+^README\.Rmd$
+^README\.html$
+^README_files$
+^index\.Rmd$
+^index\.html$
+^index\.md$
+^index_files$
+^\.aider\.chat\.history\.md$
+^\.aider\.conf\.yml$
+^\.aider\.input\.history$
+^\.aider\.tags\.cache\.v4$
