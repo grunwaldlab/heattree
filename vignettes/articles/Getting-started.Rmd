@@ -4,8 +4,8 @@ title: "Getting started"
 
 ```{r include=FALSE}
 library(heattree)
-fig_width = 775
-fig_height = 775
+fig_width = '100%'
+fig_height = '70vh'
 knitr::opts_chunk$set(
   message = FALSE,
   collapse = TRUE,
@@ -13,16 +13,16 @@ knitr::opts_chunk$set(
   )
 ```
 
-The package includes example data sets that are automatically loaded with the package (`example_tree_1`), so you can try it out with minimal effort.
+The package includes example data sets that are automatically loaded with the package (`bansal_2021_tree`), so you can try it out with minimal effort.
 After installing the packages, simply run the lines below to get an idea of how it works:
 
 ```{r eval=FALSE}
 library(heattree)
-heat_tree(example_tree_1, metadata = example_metadata_1, aesthetics = c(tipLabelColor = 'source'), layout = 'circular')
+heat_tree(bansal_2021_tree, metadata = bansal_2021_metadata, aesthetics = c(tipLabelColor = 'Lifestyle'))
 ```
 
 ```{r echo=FALSE}
-heat_tree(example_tree_1, metadata = example_metadata_1, aesthetics = c(tipLabelColor = 'source'), layout = 'circular', width = fig_width, height = fig_height, manualZoomAndPanEnabled = FALSE)
+heat_tree(bansal_2021_tree, metadata = bansal_2021_metadata, aesthetics = c(tipLabelColor = 'Lifestyle'), width = fig_width, height = fig_height, manualZoomAndPanEnabled = FALSE)
 ```
 
 You will have the option to interactively upload your own trees/metadata in the widgets menu as well.
@@ -48,12 +48,9 @@ The following types of input data are currently supported:
 For example, here is the test data included in the package in these three formats: 
 
 ```{r}
-example_tree_path <- system.file('extdata', 'example_tree_1.treefile', package = 'heattree')
-print(example_tree_path)
+example_tree_path <- system.file('extdata', 'bansal_2021_tree.nwk', package = 'heattree')
 example_text <- readLines(example_tree_path)
-print(example_text)
 example_phylo <- ape::read.tree(example_tree_path)
-print(example_phylo)
 ```
 
 These three commands all produce the same plot:
@@ -74,8 +71,7 @@ This table must have a "node_id" column with values matching the IDs in the tree
 For example, this data is associated with the above example tree:
 
 ```{r}
-example_metadata_path <- system.file('extdata', 'example_metadata_1.tsv', package = 'heattree')
-print(example_metadata_path)
+example_metadata_path <- system.file('extdata', 'bansal_2021_metadata.tsv', package = 'heattree')
 example_metadata <- readr::read_tsv(example_metadata_path)
 print(example_metadata)
 ```
@@ -86,12 +82,12 @@ The `aesthetics` parameter is used to specify which columns correspond to which 
 These two commands produce the same plot:
 
 ```{r eval=FALSE}
-heat_tree(example_tree_path, metadata = example_metadata_path, aesthetics = c(tipLabelColor = 'source'))
-heat_tree(example_tree_path, metadata = example_metadata, aesthetics = c(tipLabelColor = 'source'))
+heat_tree(example_tree_path, metadata = example_metadata_path, aesthetics = c(tipLabelColor = 'Lifestyle'))
+heat_tree(example_tree_path, metadata = example_metadata, aesthetics = c(tipLabelColor = 'Lifestyle'))
 ```
 
 ```{r echo=FALSE}
-heat_tree(example_tree_path, metadata = example_metadata, aesthetics = c(tipLabelColor = 'source'), width = fig_width, height = fig_height, manualZoomAndPanEnabled = FALSE)
+heat_tree(example_tree_path, metadata = example_metadata, aesthetics = c(tipLabelColor = 'Lifestyle'), width = fig_width, height = fig_height, manualZoomAndPanEnabled = FALSE)
 ```
 
 Check the [`heat-tree`](https://www.npmjs.com/package/@grunwaldlab/heat-tree) javascript package documentation for the list of valid aesthetics.
@@ -104,11 +100,11 @@ All of the value of options described in the [`heat-tree`](https://www.npmjs.com
 For example, the layout can be changed to circular like so:
 
 ```{r eval=FALSE}
-heat_tree(example_phylo, layout = 'circular')
+heat_tree(example_phylo)
 ```
 
 ```{r echo=FALSE}
-heat_tree(example_phylo, layout = 'circular', width = fig_width, height = fig_height, manualZoomAndPanEnabled = FALSE)
+heat_tree(example_phylo, width = fig_width, height = fig_height, manualZoomAndPanEnabled = FALSE)
 ```
 
 
@@ -123,6 +119,6 @@ For example:
 heat_tree(
   tree = list(tree_1, tree_2),
   metadata = list(metadata_1, metadata_2),
-  aesthetics = list(NULL, c(tipLabelColor = 'source')
+  aesthetics = list(NULL, c(tipLabelColor = 'Lifestyle')
 )
 ```

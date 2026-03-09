@@ -1,5 +1,11 @@
 #' @keywords internal
-df_to_tsv <- function(df) {
+df_to_tsv <- function(df, na_value = 'NA') {
+  # Convert NAs into the specified text value
+  df[] <- lapply(df, function(x) {
+    x[is.na(x)] <- na_value
+    return(x)
+  })
+
   paste(
     c(paste(colnames(df), collapse = "\t"),
     apply(df, 1, function(row) paste(row, collapse = "\t"))),
@@ -116,6 +122,15 @@ heat_tree <- function(tree = NULL, metadata = NULL, aesthetics = NULL, width = N
     stop("aesthetics list must have same length as tree list")
   }
 
+  # Check that columns defined in aesthetics are present in the metadata
+  for (i in seq_along(aesthetics_list)) {
+    for (column in aesthetics_list[[i]]) {
+      if (! column %in% colnames(metadata_list[[i]])) {
+        stop(paste0('The column "', column, '" does not exist in the associated metadata.'), call. = FALSE)
+      }
+    }
+  }
+
   # Build tree data structure for JavaScript
   trees_data <- lapply(seq_along(tree_list), function(i) {
     tree_obj <- list(
@@ -134,7 +149,7 @@ heat_tree <- function(tree = NULL, metadata = NULL, aesthetics = NULL, width = N
       }
 
       # Convert data frame to TSV format
-      metadata_tsv <- df_to_tsv(metadata_df)
+      metadata_tsv <- df_to_tsv(metadata_df, na_value = '')
 
       tree_obj$metadata <- list(
         list(
