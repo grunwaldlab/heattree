@@ -1,12 +1,16 @@
 <urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
 <url><loc>https://grunwaldlab.github.io/heattree/404.html</loc></url>
+<url><loc>https://grunwaldlab.github.io/heattree/LICENSE-text.html</loc></url>
 <url><loc>https://grunwaldlab.github.io/heattree/articles/Getting-started.html</loc></url>
 <url><loc>https://grunwaldlab.github.io/heattree/articles/index.html</loc></url>
 <url><loc>https://grunwaldlab.github.io/heattree/authors.html</loc></url>
 <url><loc>https://grunwaldlab.github.io/heattree/index.html</loc></url>
-<url><loc>https://grunwaldlab.github.io/heattree/reference/df_to_tsv.html</loc></url>
+<url><loc>https://grunwaldlab.github.io/heattree/reference/bansal_2021_metadata.html</loc></url>
+<url><loc>https://grunwaldlab.github.io/heattree/reference/bansal_2021_tree.html</loc></url>
+<url><loc>https://grunwaldlab.github.io/heattree/reference/example_metadata_1.html</loc></url>
+<url><loc>https://grunwaldlab.github.io/heattree/reference/example_tree_1.html</loc></url>
 <url><loc>https://grunwaldlab.github.io/heattree/reference/heat_tree-shiny.html</loc></url>
-<url><loc>https://grunwaldlab.github.io/heattree/reference/hello.html</loc></url>
+<url><loc>https://grunwaldlab.github.io/heattree/reference/heat_tree.html</loc></url>
 <url><loc>https://grunwaldlab.github.io/heattree/reference/index.html</loc></url>
 </urlset>
 
