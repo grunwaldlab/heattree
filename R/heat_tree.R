@@ -1,10 +1,19 @@
 #' @keywords internal
-df_to_tsv <- function(df, na_value = 'NA') {
+df_to_tsv <- function(df, na_value = 'NA', row_name_col = 'row_names') {
   # Convert NAs into the specified text value
   df[] <- lapply(df, function(x) {
     x[is.na(x)] <- na_value
     return(x)
   })
+
+  # Convert row names to a column if present
+  if (! all(seq_len(nrow(df)) == rownames(df))) {
+    if (row_name_col %in% colnames(df)) {
+      row_name_col <- make.unique(c(row_name_col, colnames(df)))[1]
+    }
+    df[[row_name_col]] <- rownames(df)
+    rownames(df) <- NULL
+  }
 
   paste(
     c(paste(colnames(df), collapse = "\t"),
