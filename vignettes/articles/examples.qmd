@@ -1,0 +1,85 @@
+---
+title: "Examples"
+format:
+  html:
+    code-fold: true
+    code-tools: true
+    toc: false
+---
+
+```{r include=FALSE}
+library(heattree)
+knitr::opts_chunk$set(
+  message = FALSE,
+  collapse = TRUE,
+  comment = "#>"
+  )
+```
+
+## Phytools datasets
+
+The [`phytools`](https://github.com/liamrevell/phytools) package has many example trees with associated metadata, ideal for use with `heattree`.
+Below is all of these data sets in a single `heattree` widget.
+
+```{r}
+# Load required datasets from phytools
+library(phytools)
+data(anole.data)
+data(anoletree)
+data(bonyfish.data)
+data(bonyfish.tree)
+data(butterfly.data)
+data(butterfly.tree)
+data(eel.data)
+data(eel.tree)
+data(flatworm.data)
+data(flatworm.tree)
+data(mammal.data)
+data(mammal.tree)
+data(primate.data)
+data(primate.tree)
+data(sunfish.data)
+data(sunfish.tree)
+data(tropidurid.data)
+data(tropidurid.tree)
+
+# Create tree widget
+library(heattree)
+heat_tree(
+  tree = list(
+    'Anoles' = anoletree,
+    'Bony fishs' = bonyfish.tree,
+    'Butterflies' = butterfly.tree,
+    'Eels' = eel.tree,
+    'Flatworms' = flatworm.tree,
+    'Mammals' = mammal.tree,
+    'Primates' = primate.tree,
+    'Sunfishes' = sunfish.tree,
+    'Tortoises' = tropidurid.tree
+  ),
+  metadata = list(
+    anole.data,
+    bonyfish.data,
+    butterfly.data,
+    eel.data,
+    flatworm.data,
+    mammal.data,
+    primate.data,
+    sunfish.data,
+    tropidurid.data
+  ),
+  aesthetics = list(
+    c(tipLabelColor = 'SVL'),
+    c(tipLabelColor = 'paternal_care'),
+    c(tipLabelColor = 'habitat'),
+    c(tipLabelColor = 'feed_mode'),
+    c(tipLabelColor = 'Habitat'),
+    c(tipLabelColor = 'bodyMass'),
+    c(tipLabelColor = 'Skull_length'),
+    c(tipLabelColor = 'buccal.length'),
+    c(tipLabelColor = 'body_height')
+  ),
+  layout = 'circular'
+)
+```
+
