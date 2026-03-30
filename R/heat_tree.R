@@ -1,5 +1,9 @@
 #' @keywords internal
 df_to_tsv <- function(df, na_value = 'NA', row_name_col = 'row_names') {
+  # Convert factors to character vectors
+  is_factor <- vapply(df, is.factor, FUN.VALUE = logical(1))
+  df[is_factor] <- lapply(df[is_factor], as.character)
+
   # Convert NAs into the specified text value
   df[] <- lapply(df, function(x) {
     x[is.na(x)] <- na_value
@@ -179,7 +183,7 @@ heat_tree <- function(tree = NULL, metadata = NULL, aesthetics = NULL, width = N
     }
 
     # Add aesthetics if present
-    if (length(aesthetics_list) >= i && !is.null(aesthetics_list[[i]])) {
+    if (length(aesthetics_list) >= i && ! is.null(aesthetics_list[[i]])) {
       tree_obj$aesthetics <- as.list(aesthetics_list[[i]])
     }
 
