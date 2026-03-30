@@ -31,7 +31,7 @@ devtools::install_github('grunwaldlab/heattree')
 
 ## Quick start
 
-```{r, child="vignettes/articles/Getting-started.Rmd"}
+```{r, child="vignettes/articles/getting_started.Rmd"}
 ```
 
 

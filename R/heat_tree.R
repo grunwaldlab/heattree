@@ -55,6 +55,16 @@ df_to_tsv <- function(df, na_value = 'NA', row_name_col = 'row_names') {
 #' @export
 heat_tree <- function(tree = NULL, metadata = NULL, aesthetics = NULL, width = NULL, height = NULL, elementId = NULL, ...) {
 
+  # Use special defualt size settings for R markdown / Quarto documents
+  if (knitr::is_html_output()) {
+    if (is.null(width)) {
+      width <- '100%'
+    }
+    if (is.null(height)) {
+      height <- '70vh'
+    }
+  }
+
   # Normalize tree input to a list
   validate_tree_input <- function(input) {
     if (inherits(input, "phylo")) {

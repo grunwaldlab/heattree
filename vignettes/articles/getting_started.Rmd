@@ -1,5 +1,8 @@
 ---
 title: "Getting started"
+output:
+  rmarkdown::html_vignette:
+    toc: false
 ---
 
 ```{r include=FALSE}
@@ -16,13 +19,9 @@ knitr::opts_chunk$set(
 The package includes example data sets that are automatically loaded with the package (`bansal_2021_tree`), so you can try it out with minimal effort.
 After installing the packages, simply run the lines below to get an idea of how it works:
 
-```{r eval=FALSE}
+```{r}
 library(heattree)
-heat_tree(bansal_2021_tree, metadata = bansal_2021_metadata, aesthetics = c(tipLabelColor = 'Lifestyle'))
-```
-
-```{r echo=FALSE}
-heat_tree(bansal_2021_tree, metadata = bansal_2021_metadata, aesthetics = c(tipLabelColor = 'Lifestyle'), width = fig_width, height = fig_height, manualZoomAndPanEnabled = FALSE)
+heat_tree(bansal_2021_tree, metadata = bansal_2021_metadata, aesthetics = c(tipLabelColor = 'Lifestyle', tipLabelText = 'Species'), manualZoomAndPanEnabled = FALSE)
 ```
 
 You will have the option to interactively upload your own trees/metadata in the widgets menu as well.
@@ -62,7 +61,7 @@ heat_tree(example_phylo)
 ```
 
 ```{r echo=FALSE}
-heat_tree(example_tree_path, width = fig_width, height = fig_height, manualZoomAndPanEnabled = FALSE)
+heat_tree(example_tree_path, manualZoomAndPanEnabled = FALSE)
 ```
 
 You can also supply metadata for the tree by supplying a path to a TSV/CSV or a `data.frame`/`tibble`.
@@ -81,13 +80,9 @@ Metadata can be used to color or size tree elements, similar to how `ggplot2` wo
 The `aesthetics` parameter is used to specify which columns correspond to which aesthetics.
 These two commands produce the same plot:
 
-```{r eval=FALSE}
-heat_tree(example_tree_path, metadata = example_metadata_path, aesthetics = c(tipLabelColor = 'Lifestyle'))
-heat_tree(example_tree_path, metadata = example_metadata, aesthetics = c(tipLabelColor = 'Lifestyle'))
-```
-
-```{r echo=FALSE}
-heat_tree(example_tree_path, metadata = example_metadata, aesthetics = c(tipLabelColor = 'Lifestyle'), width = fig_width, height = fig_height, manualZoomAndPanEnabled = FALSE)
+```{r}
+heat_tree(example_tree_path, metadata = example_metadata_path, aesthetics = c(tipLabelColor = 'Lifestyle'), manualZoomAndPanEnabled = FALSE)
+heat_tree(example_tree_path, metadata = example_metadata, aesthetics = c(tipLabelColor = 'Lifestyle'), manualZoomAndPanEnabled = FALSE)
 ```
 
 Check the [`heat-tree`](https://www.npmjs.com/package/@grunwaldlab/heat-tree) javascript package documentation for the list of valid aesthetics.
@@ -99,12 +94,8 @@ Although the widget is primarily designed for interactive use, the initial setti
 All of the value of options described in the [`heat-tree`](https://www.npmjs.com/package/@grunwaldlab/heat-tree) javascript package documentation can be used as optional parameters.
 For example, the layout can be changed to circular like so:
 
-```{r eval=FALSE}
-heat_tree(example_phylo)
-```
-
-```{r echo=FALSE}
-heat_tree(example_phylo, width = fig_width, height = fig_height, manualZoomAndPanEnabled = FALSE)
+```{r}
+heat_tree(example_phylo, manualZoomAndPanEnabled = FALSE)
 ```
 
 
@@ -119,6 +110,6 @@ For example:
 heat_tree(
   tree = list(tree_1, tree_2),
   metadata = list(metadata_1, metadata_2),
-  aesthetics = list(NULL, c(tipLabelColor = 'Lifestyle')
+  aesthetics = list(NULL, c(tipLabelColor = 'Lifestyle'))
 )
 ```
