@@ -1,4 +1,24 @@
 #' @keywords internal
+format_tip_labels <- function(text) {
+
+  word_counts <- vapply(strsplit(text, split = '_+'), length, FUN.VALUE = numeric(1))
+  if (mean(word_counts) <= 3) {
+    text <- gsub(text, pattern = '_+', replacement = ' ')
+  }
+
+  char_frequency <- table(unlist(strsplit(text, split = '')))
+  char_frequency <- char_frequency[names(char_frequency) != ' ']
+  is_alpha <- grepl(names(char_frequency), pattern = '[a-zA-Z]')
+  alpha_frequency <- sum(char_frequency[is_alpha]) / sum(char_frequency)
+  all_start_lowercase <- all(grepl(pattern = '[a-z]', substr(text, 1, 1)))
+  if (alpha_frequency > 0.9 && all_start_lowercase) {
+    text <- paste0(toupper(substr(text, 1, 1)), substr(text, 2, nchar(text)))
+  }
+
+  return(text)
+}
+
+#' @keywords internal
 df_to_tsv <- function(df, na_value = 'NA', row_name_col = 'row_names') {
   # Convert factors to character vectors
   is_factor <- vapply(df, is.factor, FUN.VALUE = logical(1))
@@ -169,6 +189,23 @@ heat_tree <- function(tree = NULL, metadata = NULL, aesthetics = NULL, width = N
         metadata_names[i]
       } else {
         paste0("metadata ", i)
+      }
+
+      # Convert row names to a column if present. TODO: remove once the JS `heat-tree` package does this via aesethetic settings
+      row_name_col <- 'row_names'
+      if (! all(seq_len(nrow(metadata_df)) == rownames(metadata_df))) {
+        if (row_name_col %in% colnames(metadata_df)) {
+          row_name_col <- make.unique(c(row_name_col, colnames(metadata_df)))[1]
+        }
+        metadata_df[[row_name_col]] <- rownames(metadata_df)
+        rownames(metadata_df) <- NULL
+
+        # Format default tip labels
+        if (! 'tipLabelText' %in% aesthetics_list[[i]]) {
+          row_names_formatted_col <- 'row_names_formatted'
+          metadata_df[['row_names_formatted']] <- format_tip_labels(metadata_df[[row_name_col]])
+          aesthetics_list[[i]]['tipLabelText'] <- row_names_formatted_col
+        }
       }
 
       # Convert data frame to TSV format
