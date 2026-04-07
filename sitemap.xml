@@ -1,7 +1,8 @@
 <urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
 <url><loc>https://grunwaldlab.github.io/heattree/404.html</loc></url>
 <url><loc>https://grunwaldlab.github.io/heattree/LICENSE-text.html</loc></url>
-<url><loc>https://grunwaldlab.github.io/heattree/articles/Getting-started.html</loc></url>
+<url><loc>https://grunwaldlab.github.io/heattree/articles/examples.html</loc></url>
+<url><loc>https://grunwaldlab.github.io/heattree/articles/getting_started.html</loc></url>
 <url><loc>https://grunwaldlab.github.io/heattree/articles/index.html</loc></url>
 <url><loc>https://grunwaldlab.github.io/heattree/authors.html</loc></url>
 <url><loc>https://grunwaldlab.github.io/heattree/index.html</loc></url>
@@ -12,5 +13,8 @@
 <url><loc>https://grunwaldlab.github.io/heattree/reference/heat_tree-shiny.html</loc></url>
 <url><loc>https://grunwaldlab.github.io/heattree/reference/heat_tree.html</loc></url>
 <url><loc>https://grunwaldlab.github.io/heattree/reference/index.html</loc></url>
+<url><loc>https://grunwaldlab.github.io/heattree/reference/weisberg_2020_beast.html</loc></url>
+<url><loc>https://grunwaldlab.github.io/heattree/reference/weisberg_2020_metadata.html</loc></url>
+<url><loc>https://grunwaldlab.github.io/heattree/reference/weisberg_2020_mlsa.html</loc></url>
 </urlset>
 

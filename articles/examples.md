@@ -1,0 +1,102 @@
+# Examples
+
+## Phytools datasets
+
+The [`phytools`](https://github.com/liamrevell/phytools) package has
+many example trees with associated metadata, ideal for use with
+`heattree`. Below is all of these data sets in a single `heattree`
+widget.
+
+Code
+
+``` r
+# Load required datasets from phytools
+library(phytools)
+data(anole.data)
+data(anoletree)
+data(bonyfish.data)
+data(bonyfish.tree)
+data(butterfly.data)
+data(butterfly.tree)
+data(eel.data)
+data(eel.tree)
+data(flatworm.data)
+data(flatworm.tree)
+data(mammal.data)
+data(mammal.tree)
+data(primate.data)
+data(primate.tree)
+data(sunfish.data)
+data(sunfish.tree)
+data(tropidurid.data)
+data(tropidurid.tree)
+
+# Create tree widget
+library(heattree)
+heat_tree(
+  tree = list(
+    'Anoles' = anoletree,
+    'Bony fishs' = bonyfish.tree,
+    'Butterflies' = butterfly.tree,
+    'Eels' = eel.tree,
+    'Flatworms' = flatworm.tree,
+    'Mammals' = mammal.tree,
+    'Primates' = primate.tree,
+    'Sunfishes' = sunfish.tree,
+    'Tortoises' = tropidurid.tree
+  ),
+  metadata = list(
+    anole.data,
+    bonyfish.data,
+    butterfly.data,
+    eel.data,
+    flatworm.data,
+    mammal.data,
+    primate.data,
+    sunfish.data,
+    tropidurid.data
+  ),
+  aesthetics = list(
+    c(tipLabelColor = 'SVL'),
+    c(tipLabelColor = 'paternal_care'),
+    c(tipLabelColor = 'habitat'),
+    c(tipLabelColor = 'feed_mode'),
+    c(tipLabelColor = 'Habitat'),
+    c(tipLabelColor = 'bodyMass'),
+    c(tipLabelColor = 'Skull_length'),
+    c(tipLabelColor = 'buccal.length'),
+    c(tipLabelColor = 'body_height')
+  ),
+  layout = 'circular', manualZoomAndPanEnabled = FALSE
+)
+```
+
+## Weisberg et al. 2020
+
+Below are two phylogenetic trees of agrobacteria isolates plotted in the
+same widget, one a multilocus sequence analysis (MLSA) and another from
+a time-calibrated BEAST tree, both from the following study:
+
+Alexandra J. Weisberg et al., Unexpected conservation and global
+transmission of agrobacterial virulence plasmids. Science368, eaba5256
+(2020)
+
+Code
+
+``` r
+library(heattree)
+
+data(weisberg_2020_metadata)
+data(weisberg_2020_mlsa)
+data(weisberg_2020_beast)
+
+heat_tree(
+  tree = list('MLSA' = weisberg_2020_mlsa, 'BEAST' = weisberg_2020_beast),
+  metadata = list(weisberg_2020_metadata, weisberg_2020_metadata),
+  aesthetics = list(
+    c(tipLabelText = 'Strain.ID', tipLabelColor = 'Host Type'),
+    c(tipLabelText = 'Strain.ID', tipLabelColor = 'Year Isolated')
+  ),
+  manualZoomAndPanEnabled = FALSE
+)
+```
