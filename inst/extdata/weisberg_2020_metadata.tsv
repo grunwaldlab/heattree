@@ -1,4 +1,4 @@
-Strain.ID	""Taxonomic"" classification*	3-letter code*	Genomospecies	Host	Host Type	Location Code^	Opine Type	Year Isolated	Class of oncogenic plasmid	Type  of oncogenic plasmid	NCBI accession	mlsa_node_id	beast_node_id
+Strain.ID	Taxonomic classification*	3-letter code*	Genomospecies	Host	Host Type	Location Code^	Opine Type	Year Isolated	Class of oncogenic plasmid	Type  of oncogenic plasmid	NCBI accession	mlsa_node_id	beast_node_id
 A4	rhizogenes	BV2	NA	Rose	Woody	NA	Agrocinopine/Agropine	1963	Ri	(Ri) Type III	SAMN14165422	A4__BV2	A4
 Ach5	tumefaciens	BV1	G1	Yarrow	Herbaceous	S2_N2	Octopine/Agropine	NA	Ti	Type II	SAMN14165423	Ach5__BV1	Ach5
 H16/79	rhizogenes	BV2	NA	Rose	Woody	C4	Agrocinopine/Other	1979	Ti	Type Ib	SAMN14165424	H16_79__BV2	H16_79

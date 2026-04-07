@@ -79,43 +79,32 @@ heat_tree(
     c(tipLabelColor = 'buccal.length'),
     c(tipLabelColor = 'body_height')
   ),
-  layout = 'circular'
+  layout = 'circular', manualZoomAndPanEnabled = FALSE
 )
 ```
 
 
-
 ## Weisberg et al. 2020
 
+Below are two phylogenetic trees of agrobacteria isolates plotted in the same widget, one a multilocus sequence analysis (MLSA) and another from a time-calibrated BEAST tree, both from the following study:
+
+Alexandra J. Weisberg et al., Unexpected conservation and global transmission of agrobacterial virulence plasmids. Science368, eaba5256 (2020)
+
 ```{r}
-library(readxl)
-library(ape)
 library(heattree)
 
-# Read and format metadata for use with trees
-metadata <- read.table('inst/extdata/weisberg_2020_s1.tsv', sep = '\t', header = TRUE)
-metadata$Strain.ID[is.na(metadata$Strain.ID)] <- ''
-metadata$`3-letter code*`[is.na(metadata$`3-letter code*`)] <- ''
-metadata$mlsa_node_id <- paste0(metadata$Strain.ID, '__', metadata$`3-letter code*`)
-metadata$mlsa_node_id <- gsub(metadata$mlsa_node_id, pattern = '[/ ]', replacement = '_')
-metadata$beast_node_id <- gsub(metadata$Strain.ID, pattern = '[/ ]', replacement = '_')
+data(weisberg_2020_metadata)
+data(weisberg_2020_mlsa)
+data(weisberg_2020_beast)
 
-# Load MLSA tree and subset for available metadata
-tree_mlsa <- read.tree('inst/extdata/wiesberg_2020_mlsa.tre')
-shared_ids <- tree_mlsa$tip.label[tree_mlsa$tip.label %in% metadata$mlsa_node_id]
-tree_mlsa_subset <- keep.tip(tree_mlsa, shared_ids)
-
-# Load BEAST tree and subset for available metadata
-tree_beast <- read.nexus('inst/extdata/wiesberg_2020_beast.tre')
-shared_ids <- tree_beast$tip.label[tree_beast$tip.label %in% metadata$beast_node_id]
-tree_beast_subset <- keep.tip(tree_beast, shared_ids)
-
-# Plot both trees in the same widget
 heat_tree(
-  tree = list('MLSA' = tree_mlsa_subset, 'BEAST' = tree_beast_subset),
-  metadata = list(metadata, metadata),
-  aesthetics = list(c(tipLabelText = 'Strain.ID'), c(tipLabelText = 'Strain.ID')),
-  layout = 'circular'
+  tree = list('MLSA' = weisberg_2020_mlsa, 'BEAST' = weisberg_2020_beast),
+  metadata = list(weisberg_2020_metadata, weisberg_2020_metadata),
+  aesthetics = list(
+    c(tipLabelText = 'Strain.ID', tipLabelColor = 'Host Type'),
+    c(tipLabelText = 'Strain.ID', tipLabelColor = 'Year Isolated')
+  ),
+  manualZoomAndPanEnabled = FALSE
 )
 ```
 

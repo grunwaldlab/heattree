@@ -202,8 +202,8 @@ heat_tree <- function(tree = NULL, metadata = NULL, aesthetics = NULL, width = N
 
         # Format default tip labels
         if (! 'tipLabelText' %in% aesthetics_list[[i]]) {
-          row_names_formatted_col <- 'row_names_formatted'
-          metadata_df[['row_names_formatted']] <- format_tip_labels(metadata_df[[row_name_col]])
+          row_names_formatted_col <- 'formatted_ids'
+          metadata_df[[row_names_formatted_col]] <- format_tip_labels(metadata_df[[row_name_col]])
           aesthetics_list[[i]]['tipLabelText'] <- row_names_formatted_col
         }
       }
