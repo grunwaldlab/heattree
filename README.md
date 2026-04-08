@@ -8,7 +8,7 @@
 
 This package makes it easy to visualize, manipulate, and export
 phylogenetic trees in R using an interactive viewer/editor. You can
-insert this tree viewer into Rmd/Quarto documents make your trees
+insert this tree viewer into Rmd/Quarto documents to make your trees
 accessible online. If you want to use this for web development outside
 of R, consider the [javascript `heat-tree`
 package](https://www.npmjs.com/package/@grunwaldlab/heat-tree) which
@@ -25,10 +25,7 @@ devtools::install_github('grunwaldlab/heattree')
 
 ## Quick start
 
-The package includes example data sets that are automatically loaded
-with the package (`bansal_2021_tree`), so you can try it out with
-minimal effort. After installing the packages, simply run the lines
-below to get an idea of how it works:
+The package includes example data sets that are automatically loaded (`bansal_2021_tree`), so that you can explore `heattree`. After installing the package, simply run the lines below:
 
 ``` r
 library(heattree)
@@ -37,14 +34,14 @@ heat_tree(bansal_2021_tree, metadata = bansal_2021_metadata, aesthetics = c(tipL
 
 ![](README_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
 
-You will have the option to interactively upload your own trees/metadata
+You have the option to interactively upload your own trees/metadata
 in the widgets menu as well.
 
 ## Basic Usage
 
 This package is designed to be as simple to use as possible while also
-allowing for advanced customization. In fact, since you can upload tree
-and metadata interactively, it is entirely valid to create a widget with
+allowing for advanced customizations. In fact, since you can upload tree
+and metadata interactively, it is entirely possible to create a tree widget with
 no input:
 
 ``` r
@@ -129,9 +126,9 @@ javascript package documentation for the list of valid aesthetics.
 
 Although the widget is primarily designed for interactive use, the
 initial settings can be set programmatically. All of the value of
-options described in the
+options are described in the
 [`heat-tree`](https://www.npmjs.com/package/@grunwaldlab/heat-tree)
-javascript package documentation can be used as optional parameters. For
+javascript package documentation as optional parameters. For
 example, the layout can be changed to circular like so:
 
 ``` r
