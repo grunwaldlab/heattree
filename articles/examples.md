@@ -78,7 +78,7 @@ same widget, one a multilocus sequence analysis (MLSA) and another from
 a time-calibrated BEAST tree, both from the following study:
 
 Alexandra J. Weisberg et al., Unexpected conservation and global
-transmission of agrobacterial virulence plasmids. Science368, eaba5256
+transmission of agrobacterial virulence plasmids. Science 368, eaba5256
 (2020)
 
 Code
@@ -94,8 +94,8 @@ heat_tree(
   tree = list('MLSA' = weisberg_2020_mlsa, 'BEAST' = weisberg_2020_beast),
   metadata = list(weisberg_2020_metadata, weisberg_2020_metadata),
   aesthetics = list(
-    c(tipLabelText = 'Strain.ID', tipLabelColor = 'Host Type'),
-    c(tipLabelText = 'Strain.ID', tipLabelColor = 'Year Isolated')
+    c(tipLabelText = 'strain', tipLabelColor = 'host_type'),
+    c(tipLabelText = 'strain', tipLabelColor = 'year_isolated')
   ),
   manualZoomAndPanEnabled = FALSE
 )
