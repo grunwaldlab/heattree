@@ -32,5 +32,6 @@ URL: https://grunwaldlab.github.io/heattree/
 Config/Needs/website: rmarkdown
 Roxygen: list(markdown = TRUE)
 Suggests: 
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    knitr
 Config/testthat/edition: 3

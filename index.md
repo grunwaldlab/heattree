@@ -18,12 +18,16 @@ with `devtools`:
 ## Quick start
 
 The package includes example data sets that are automatically loaded
-with the package (`example_tree_1`), so you can try it out with minimal
-effort. After installing the packages, simply run the lines below to get
-an idea of how it works:
+with the package (e.g. `weisberg_2020_mlsa`), so you can try it out with
+minimal effort. After installing the packages, simply run the lines
+below to get an idea of how it works:
 
     library(heattree)
-    heat_tree(example_tree_1, metadata = example_metadata_1, aesthetics = c(tipLabelColor = 'source'), layout = 'circular')
+    heat_tree(
+      tree = weisberg_2020_mlsa,
+      metadata = weisberg_2020_metadata,
+      aesthetics = c(tipLabelColor = 'host_type'),
+      layout = 'circular')
 
 ![](man/figures/unnamed-chunk-4-1.png)
 

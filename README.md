@@ -8,7 +8,7 @@
 
 This package makes it easy to visualize, manipulate, and export
 phylogenetic trees in R using an interactive viewer/editor. You can
-insert this tree viewer into Rmd/Quarto documents to make your trees
+insert this tree viewer into Rmd/Quarto documents make your trees
 accessible online. If you want to use this for web development outside
 of R, consider the [javascript `heat-tree`
 package](https://www.npmjs.com/package/@grunwaldlab/heat-tree) which
@@ -25,23 +25,26 @@ devtools::install_github('grunwaldlab/heattree')
 
 ## Quick start
 
-The package includes example data sets that are automatically loaded (`bansal_2021_tree`), so that you can explore `heattree`. After installing the package, simply run the lines below:
+The package includes example data sets that are automatically loaded
+with the package (`bansal_2021_tree`), so you can try it out with
+minimal effort. After installing the packages, simply run the lines
+below to get an idea of how it works:
 
 ``` r
 library(heattree)
-heat_tree(bansal_2021_tree, metadata = bansal_2021_metadata, aesthetics = c(tipLabelColor = 'Lifestyle'))
+heat_tree(bansal_2021_tree, metadata = bansal_2021_metadata, aesthetics = c(tipLabelColor = 'Lifestyle', tipLabelText = 'Species'), manualZoomAndPanEnabled = FALSE)
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
 
-You have the option to interactively upload your own trees/metadata
+You will have the option to interactively upload your own trees/metadata
 in the widgets menu as well.
 
 ## Basic Usage
 
 This package is designed to be as simple to use as possible while also
-allowing for advanced customizations. In fact, since you can upload tree
-and metadata interactively, it is entirely possible to create a tree widget with
+allowing for advanced customization. In fact, since you can upload tree
+and metadata interactively, it is entirely valid to create a widget with
 no input:
 
 ``` r
@@ -73,7 +76,7 @@ heat_tree(example_text)
 heat_tree(example_phylo)
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-13-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
 
 You can also supply metadata for the tree by supplying a path to a
 TSV/CSV or a `data.frame`/`tibble`.
@@ -112,11 +115,16 @@ correspond to which aesthetics. These two commands produce the same
 plot:
 
 ``` r
-heat_tree(example_tree_path, metadata = example_metadata_path, aesthetics = c(tipLabelColor = 'Lifestyle'))
-heat_tree(example_tree_path, metadata = example_metadata, aesthetics = c(tipLabelColor = 'Lifestyle'))
+heat_tree(example_tree_path, metadata = example_metadata_path, aesthetics = c(tipLabelColor = 'Lifestyle'), manualZoomAndPanEnabled = FALSE)
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-16-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-14-1.png)<!-- -->
+
+``` r
+heat_tree(example_tree_path, metadata = example_metadata, aesthetics = c(tipLabelColor = 'Lifestyle'), manualZoomAndPanEnabled = FALSE)
+```
+
+![](README_files/figure-gfm/unnamed-chunk-14-2.png)<!-- -->
 
 Check the
 [`heat-tree`](https://www.npmjs.com/package/@grunwaldlab/heat-tree)
@@ -126,16 +134,16 @@ javascript package documentation for the list of valid aesthetics.
 
 Although the widget is primarily designed for interactive use, the
 initial settings can be set programmatically. All of the value of
-options are described in the
+options described in the
 [`heat-tree`](https://www.npmjs.com/package/@grunwaldlab/heat-tree)
-javascript package documentation as optional parameters. For
+javascript package documentation can be used as optional parameters. For
 example, the layout can be changed to circular like so:
 
 ``` r
-heat_tree(example_phylo)
+heat_tree(example_phylo, manualZoomAndPanEnabled = FALSE)
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-18-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-15-1.png)<!-- -->
 
 ## Multiple trees
 
@@ -148,7 +156,7 @@ list as well that corresponds to the list of trees. For example:
 heat_tree(
   tree = list(tree_1, tree_2),
   metadata = list(metadata_1, metadata_2),
-  aesthetics = list(NULL, c(tipLabelColor = 'Lifestyle')
+  aesthetics = list(NULL, c(tipLabelColor = 'Lifestyle'))
 )
 ```
 

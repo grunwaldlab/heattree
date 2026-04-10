@@ -45,8 +45,12 @@ Create an interactive phylogenetic tree using the javascript \href{https://githu
 heat_tree()
 
 # Create a tree viewer with example data included with the package
-tree_path <- system.file('extdata', 'example_tree_1.treefile', package = 'heattree')
-meta_path <- system.file('extdata', 'example_metadata_1.tsv', package = 'heattree')
-heat_tree(tree_path, metadata = meta_path, aesthetics = c(tipLabelColor = 'source'))
+data(weisberg_2020_metadata)
+data(weisberg_2020_mlsa)
+heat_tree(
+  tree = weisberg_2020_mlsa,
+  metadata = weisberg_2020_metadata,
+  aesthetics = c(tipLabelColor = 'host_type')
+)
 
 }
