@@ -1,5 +1,61 @@
 # Examples
 
+## Weisberg et al. 2020
+
+Below are two phylogenetic trees of agrobacteria isolates plotted in the
+same widget, one a multilocus sequence analysis (MLSA) and another from
+a time-calibrated BEAST tree, both from the following study:
+
+Alexandra J. Weisberg et al., Unexpected conservation and global
+transmission of agrobacterial virulence plasmids. Science 368, eaba5256
+(2020)
+
+Code
+
+``` r
+library(heattree)
+
+data(weisberg_2020_metadata)
+data(weisberg_2020_mlsa)
+data(weisberg_2020_beast)
+
+heat_tree(
+  tree = list('MLSA' = weisberg_2020_mlsa, 'BEAST' = weisberg_2020_beast),
+  metadata = list(weisberg_2020_metadata, weisberg_2020_metadata),
+  aesthetics = list(
+    c(tipLabelText = 'strain', tipLabelColor = 'host_type'),
+    c(tipLabelText = 'strain', tipLabelColor = 'year_isolated')
+  ),
+  manualZoomAndPanEnabled = FALSE
+)
+```
+
+## Bansal et al. 2021
+
+Phylogenetic trees from a comparative genomics study of Xylella:
+
+Bansal, K., Kumar, S., Kaur, A., Singh, A., & Patil, P. B. (2021). Deep
+phylo-taxono genomics reveals Xylella as a variant lineage of plant
+associated Xanthomonas and supports their taxonomic reunification along
+with Stenotrophomonas and Pseudoxanthomonas. Genomics, 113(6),
+3989-4003.
+
+Code
+
+``` r
+library(heattree)
+
+data(bansal_2021_metadata)
+data(bansal_2021_tree)
+
+heat_tree(
+  tree = bansal_2021_tree,
+  metadata = bansal_2021_metadata,
+  aesthetics = c(tipLabelColor = 'Lifestyle'),
+  manualZoomAndPanEnabled = FALSE
+)
+```
+
 ## Phytools datasets
 
 The [`phytools`](https://github.com/liamrevell/phytools) package has
@@ -68,35 +124,5 @@ heat_tree(
     c(tipLabelColor = 'body_height')
   ),
   layout = 'circular', manualZoomAndPanEnabled = FALSE
-)
-```
-
-## Weisberg et al. 2020
-
-Below are two phylogenetic trees of agrobacteria isolates plotted in the
-same widget, one a multilocus sequence analysis (MLSA) and another from
-a time-calibrated BEAST tree, both from the following study:
-
-Alexandra J. Weisberg et al., Unexpected conservation and global
-transmission of agrobacterial virulence plasmids. Science 368, eaba5256
-(2020)
-
-Code
-
-``` r
-library(heattree)
-
-data(weisberg_2020_metadata)
-data(weisberg_2020_mlsa)
-data(weisberg_2020_beast)
-
-heat_tree(
-  tree = list('MLSA' = weisberg_2020_mlsa, 'BEAST' = weisberg_2020_beast),
-  metadata = list(weisberg_2020_metadata, weisberg_2020_metadata),
-  aesthetics = list(
-    c(tipLabelText = 'strain', tipLabelColor = 'host_type'),
-    c(tipLabelText = 'strain', tipLabelColor = 'year_isolated')
-  ),
-  manualZoomAndPanEnabled = FALSE
 )
 ```

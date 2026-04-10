@@ -64,9 +64,13 @@
 <div class="section level2">
 <h2 id="quick-start">Quick start<a class="anchor" aria-label="anchor" href="#quick-start"></a>
 </h2>
-<p>The package includes example data sets that are automatically loaded with the package (<code>example_tree_1</code>), so you can try it out with minimal effort. After installing the packages, simply run the lines below to get an idea of how it works:</p>
+<p>The package includes example data sets that are automatically loaded with the package (e.g. <code>weisberg_2020_mlsa</code>), so you can try it out with minimal effort. After installing the packages, simply run the lines below to get an idea of how it works:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">library</span>(heattree)</span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="fu">heat_tree</span>(example_tree_1, <span class="at">metadata =</span> example_metadata_1, <span class="at">aesthetics =</span> <span class="fu">c</span>(<span class="at">tipLabelColor =</span> <span class="st">'source'</span>), <span class="at">layout =</span> <span class="st">'circular'</span>)</span></code></pre></div>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="fu">heat_tree</span>(</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>  <span class="at">tree =</span> weisberg_2020_mlsa,</span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>  <span class="at">metadata =</span> weisberg_2020_metadata,</span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>  <span class="at">aesthetics =</span> <span class="fu">c</span>(<span class="at">tipLabelColor =</span> <span class="st">'host_type'</span>),</span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a>  <span class="at">layout =</span> <span class="st">'circular'</span>)</span></code></pre></div>
 <p><img src="reference/figures/unnamed-chunk-4-1.png"></p>
 <p><a href="articles/Getting-started.html"><strong>See the “Getting Started” page for interactive examples</strong></a></p>
 </div>
