@@ -43,7 +43,7 @@ three formats:
 ``` r
 weisberg_2020_mlsa_path <- system.file('extdata', 'weisberg_2020_mlsa.tre', package = 'heattree')
 print(weisberg_2020_mlsa_path)
-#> [1] "/tmp/RtmpuY4Ttk/temp_libpath245071bd0ee0/heattree/extdata/weisberg_2020_mlsa.tre"
+#> [1] "/tmp/RtmpS8Zk9e/temp_libpath257745fb77fa/heattree/extdata/weisberg_2020_mlsa.tre"
 
 weisberg_2020_mlsa_text <- readLines(weisberg_2020_mlsa_path)
 print(substr(weisberg_2020_mlsa_text, 1, 100))
