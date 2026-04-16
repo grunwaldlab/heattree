@@ -182,7 +182,7 @@ heat_tree <- function(tree = NULL, metadata = NULL, aesthetics = NULL, width = N
   trees_data <- lapply(seq_along(tree_list), function(i) {
     tree_obj <- list(
       name = tree_names[i],
-      newick = tree_list[[i]]
+      tree = tree_list[[i]]
     )
 
     # Add metadata if present

@@ -26,19 +26,24 @@ devtools::install_github('grunwaldlab/heattree')
 ## Quick start
 
 The package includes example data sets that are automatically loaded
-with the package (`bansal_2021_tree`), so you can try it out with
+with the package (`weisberg_2020_mlsa`), so you can try it out with
 minimal effort. After installing the packages, simply run the lines
 below to get an idea of how it works:
 
 ``` r
 library(heattree)
-heat_tree(bansal_2021_tree, metadata = bansal_2021_metadata, aesthetics = c(tipLabelColor = 'Lifestyle', tipLabelText = 'Species'), manualZoomAndPanEnabled = FALSE)
+heat_tree(
+  tree = weisberg_2020_mlsa,
+  metadata = weisberg_2020_metadata,
+  aesthetics = c(tipLabelColor = 'host_type'),
+  manualZoomAndPanEnabled = FALSE
+)
 ```
 
 ![](README_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
 
 You will have the option to interactively upload your own trees/metadata
-in the widgets menu as well.
+in the widgets menu as well under the “Data” tab.
 
 ## Basic Usage
 
@@ -63,49 +68,66 @@ For example, here is the test data included in the package in these
 three formats:
 
 ``` r
-example_tree_path <- system.file('extdata', 'bansal_2021_tree.nwk', package = 'heattree')
-example_text <- readLines(example_tree_path)
-example_phylo <- ape::read.tree(example_tree_path)
+weisberg_2020_mlsa_path <- system.file('extdata', 'weisberg_2020_mlsa.tre', package = 'heattree')
+print(weisberg_2020_mlsa_path)
+#> [1] "/home/fosterz/R/x86_64-pc-linux-gnu-library/4.5/heattree/extdata/weisberg_2020_mlsa.tre"
+
+weisberg_2020_mlsa_text <- readLines(weisberg_2020_mlsa_path)
+print(substr(weisberg_2020_mlsa_text, 1, 100))
+#> [1] "(((((CG678__BV3:1.0000005e-06,CG78__BV3:1.0000005e-06)92.0:0.009478810652,((T268_95__BV3:1.0000005e-"
+
+print(weisberg_2020_mlsa)  # The already parsed version in the ape phylo format
+#> 
+#> Phylogenetic tree with 86 tips and 36 internal nodes.
+#> 
+#> Tip labels:
+#>   CG678__BV3, CG78__BV3, T268_95__BV3, BM37_95__BV3, F2_5__BV3, AV25_95__BV3, ...
+#> Node labels:
+#>   100.0, 100.0, 100.0, 87.0, 92.0, 76.0, ...
+#> 
+#> Rooted; includes branch length(s).
 ```
 
 These three commands all produce the same plot:
 
 ``` r
-heat_tree(example_tree_path)
-heat_tree(example_text)
-heat_tree(example_phylo)
+heat_tree(weisberg_2020_mlsa_path, manualZoomAndPanEnabled = FALSE)
+heat_tree(weisberg_2020_mlsa_text, manualZoomAndPanEnabled = FALSE)
+heat_tree(weisberg_2020_mlsa, manualZoomAndPanEnabled = FALSE)
 ```
+
+    Note: `manualZoomAndPanEnabled = FALSE` is used in these examples since the visualizations are part of a scrollable document and the zoom interfers with scrolling. By default, plots can be zoomed and panned. Remove `manualZoomAndPanEnabled = FALSE` to try it out.
 
 ![](README_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
 
 You can also supply metadata for the tree by supplying a path to a
 TSV/CSV or a `data.frame`/`tibble`.
 
-This table must have a “node_id” column with values matching the IDs in
-the treefile. For example, this data is associated with the above
-example tree:
+This table must have a column with values matching the IDs in the tree
+file. `heattree` will automatically identify which column has the IDs,
+so it can have any name. For example, this data is associated with the
+above example tree:
 
 ``` r
-example_metadata_path <- system.file('extdata', 'bansal_2021_metadata.tsv', package = 'heattree')
-example_metadata <- readr::read_tsv(example_metadata_path)
-print(example_metadata)
-#> # A tibble: 76 × 15
-#>    Strain      `Genome size`   CDS `Genome status` `Source/Host` `Host taxonomy`
-#>    <chr>               <dbl> <dbl> <chr>           <chr>         <chr>          
-#>  1 Xanthomona…           4.9  3960 Draft           Sorghum vulg… Tracheophytes,…
-#>  2 Xanthomona…           4.2  3385 Draft           Oryza sativa… Tracheophytes,…
-#>  3 Xanthomona…           5.1  4416 Complete        Infected pep… Tracheophytes,…
-#>  4 Xanthomona…           5    3937 Draft           Medicago sat… Tracheophytes,…
-#>  5 Xanthomona…           5    4206 Draft           Leaves of So… Tracheophytes,…
-#>  6 Xanthomona…           5    4175 Complete        Phaseolus vu… Tracheophytes,…
-#>  7 Xanthomona…           5.1  4355 Draft           Citrus auran… Tracheophytes,…
-#>  8 Xanthomona…           4.4  3263 Draft           Axonopus sco… Tracheophytes,…
-#>  9 Xanthomona…           5.3  4208 Draft           Prunus persi… Tracheophytes,…
-#> 10 Xanthomona…           4.9  3845 Draft           Bromus carin… Tracheophytes,…
-#> # ℹ 66 more rows
-#> # ℹ 9 more variables: Lifestyle <chr>, Location <chr>, `Isolation year` <dbl>,
-#> #   `GC%` <dbl>, `# tRNA` <dbl>, Species <chr>, `Tree ID` <chr>,
-#> #   Completeness <dbl>, Contamination <dbl>
+weisberg_2020_metadata_path <- system.file('extdata', 'weisberg_2020_metadata.tsv', package = 'heattree')
+weisberg_2020_metadata <- readr::read_tsv(weisberg_2020_metadata_path)
+print(weisberg_2020_metadata)
+#> # A tibble: 148 × 13
+#>    strain   species genus genomospecies host  host_type opine_type year_isolated
+#>    <chr>    <chr>   <chr> <chr>         <chr> <chr>     <chr>              <dbl>
+#>  1 Rhizobi… Rhizob… Rhiz… Biovar 2      Rose  Woody     Agrocinop…          1979
+#>  2 Rhizobi… Rhizob… Rhiz… Biovar 2      Grape Grape (W… <NA>                1995
+#>  3 Agrobac… Agroba… Agro… Agrobacteriu… Euon… Woody     Agrocinop…          1973
+#>  4 Rhizobi… Rhizob… Rhiz… Biovar 2      Rose  Woody     Nopaline              NA
+#>  5 Rhizobi… Rhizob… Rhiz… Biovar 2      Cher… Woody     Nopaline            2008
+#>  6 Agrobac… Agroba… Agro… Biovar 1      Ston… Herbaceo… Nopaline            1958
+#>  7 Rhizobi… Rhizob… Rhiz… Biovar 2      Grape Grape (W… Nopaline            1995
+#>  8 Allorhi… Allorh… Allo… Biovar 3      Grape Grape (W… Vitopine/…          1995
+#>  9 Rhizobi… Rhizob… Rhiz… Biovar 2      Olal… Woody     Nopaline            1993
+#> 10 Rhizobi… Rhizob… Rhiz… Biovar 2      Peach Woody     Nopaline            2009
+#> # ℹ 138 more rows
+#> # ℹ 5 more variables: plasmid_class <chr>, plasmid_type <chr>,
+#> #   ncbi_accession <chr>, mlsa_node_id <chr>, beast_node_id <chr>
 ```
 
 Similar to tree input, both paths and parsed data are accepted. Metadata
@@ -115,20 +137,19 @@ correspond to which aesthetics. These two commands produce the same
 plot:
 
 ``` r
-heat_tree(example_tree_path, metadata = example_metadata_path, aesthetics = c(tipLabelColor = 'Lifestyle'), manualZoomAndPanEnabled = FALSE)
+heat_tree(
+  tree = weisberg_2020_mlsa,
+  metadata = weisberg_2020_metadata,
+  aesthetics = c(tipLabelText = 'strain', tipLabelColor = 'host_type'),
+  manualZoomAndPanEnabled = FALSE
+)
 ```
 
 ![](README_files/figure-gfm/unnamed-chunk-14-1.png)<!-- -->
 
-``` r
-heat_tree(example_tree_path, metadata = example_metadata, aesthetics = c(tipLabelColor = 'Lifestyle'), manualZoomAndPanEnabled = FALSE)
-```
-
-![](README_files/figure-gfm/unnamed-chunk-14-2.png)<!-- -->
-
 Check the
 [`heat-tree`](https://www.npmjs.com/package/@grunwaldlab/heat-tree)
-javascript package documentation for the list of valid aesthetics.
+JavaScript package documentation for the list of valid aesthetics.
 
 ## Initial settings
 
@@ -136,11 +157,16 @@ Although the widget is primarily designed for interactive use, the
 initial settings can be set programmatically. All of the value of
 options described in the
 [`heat-tree`](https://www.npmjs.com/package/@grunwaldlab/heat-tree)
-javascript package documentation can be used as optional parameters. For
+JavaScript package documentation can be used as optional parameters. For
 example, the layout can be changed to circular like so:
 
 ``` r
-heat_tree(example_phylo, manualZoomAndPanEnabled = FALSE)
+heat_tree(
+  tree = weisberg_2020_mlsa,
+  metadata = weisberg_2020_metadata,
+  aesthetics = c(tipLabelText = 'strain', tipLabelColor = 'host_type'),
+  manualZoomAndPanEnabled = FALSE, layout = 'circular'
+)
 ```
 
 ![](README_files/figure-gfm/unnamed-chunk-15-1.png)<!-- -->
@@ -154,11 +180,29 @@ list as well that corresponds to the list of trees. For example:
 
 ``` r
 heat_tree(
-  tree = list(tree_1, tree_2),
-  metadata = list(metadata_1, metadata_2),
-  aesthetics = list(NULL, c(tipLabelColor = 'Lifestyle'))
+  tree = list(
+    'Weisberg 2020 MLSA' = weisberg_2020_mlsa,
+    'Weisberg 2020 Beast' = weisberg_2020_beast,
+    'Bansal 2021' = bansal_2021_tree
+  ),
+  metadata = list(weisberg_2020_metadata, weisberg_2020_metadata, bansal_2021_metadata),
+  aesthetics = list(
+    c(tipLabelText = 'strain', tipLabelColor = 'host_type'),
+    c(tipLabelText = 'strain', tipLabelColor = 'year_isolated'),
+    c(tipLabelColor = 'Lifestyle')
+  ),
+  manualZoomAndPanEnabled = FALSE
 )
 ```
+
+![](README_files/figure-gfm/unnamed-chunk-16-1.png)<!-- -->
+
+## For more information
+
+The documentation here only covers the aspects of creating the tree
+visualizations in R. For information on the extensive controls embedded
+in the widget, refer to the documentation of the [JavaScript
+package](https://github.com/grunwaldlab/heat-tree) that implements them.
 
 ## License
 
