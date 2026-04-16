@@ -32,7 +32,7 @@ below to get an idea of how it works:
 ![](man/figures/unnamed-chunk-4-1.png)
 
 [**See the “Getting Started” page for interactive
-examples**](articles/Getting-started.html)
+examples**](articles/getting_started.html)
 
 ## Contributing and feedback
 

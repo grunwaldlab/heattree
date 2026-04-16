@@ -55,7 +55,7 @@ heat_tree(
 ```
 
 
-[**See the "Getting Started" page for interactive examples**](articles/Getting-started.html)
+[**See the "Getting Started" page for interactive examples**](articles/getting_started.html)
 
 
 ## Contributing and feedback
