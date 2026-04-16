@@ -9,10 +9,12 @@
 This package makes it easy to visualize, manipulate, and export
 phylogenetic trees in R using an interactive viewer/editor. You can
 insert this tree viewer into Rmd/Quarto documents make your trees
-accessible online. If you want to use this for web development outside
-of R, consider the [javascript `heat-tree`
-package](https://www.npmjs.com/package/@grunwaldlab/heat-tree) which
-this package builds upon.
+accessible online. See the full documentation
+[here](https://grunwaldlab.github.io/heattree/). For the python version
+of this package see [this
+documentation](https://grunwaldlab.github.io/heattree_py/). For the
+JavaScript library the is the foundation of this package see [this
+documentation](https://grunwaldlab.github.io/heat-tree/).
 
 ## Installation
 

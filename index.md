@@ -34,6 +34,16 @@ below to get an idea of how it works:
 [**See the “Getting Started” page for interactive
 examples**](articles/getting_started.html)
 
+## For Python / Jupyter Notebook users
+
+For the python version of this package see [this
+documentation](https://grunwaldlab.github.io/heattree_py/).
+
+## For JavaScript users
+
+For the JavaScript library the is the foundation of this package see
+[this documentation](https://grunwaldlab.github.io/heat-tree/).
+
 ## Contributing and feedback
 
 Contributions and feedback are welcome! Please visit the [GitHub
