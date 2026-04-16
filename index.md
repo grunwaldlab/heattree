@@ -36,7 +36,17 @@ heat_tree(
 ![](reference/figures/unnamed-chunk-4-1.png)
 
 [**See the “Getting Started” page for interactive
-examples**](https://grunwaldlab.github.io/heattree/articles/Getting-started.md)
+examples**](https://grunwaldlab.github.io/heattree/articles/getting_started.md)
+
+## For Python / Jupyter Notebook users
+
+For the python version of this package see [this
+documentation](https://grunwaldlab.github.io/heattree_py/).
+
+## For JavaScript users
+
+For the JavaScript library the is the foundation of this package see
+[this documentation](https://grunwaldlab.github.io/heat-tree/).
 
 ## Contributing and feedback
 
