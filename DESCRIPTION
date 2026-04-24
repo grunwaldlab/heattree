@@ -20,8 +20,8 @@ Authors@R: c(
   )
 Maintainer: Zachary Foster <zacharyfoster1989@gmail.com>
 Description: Creates self-contained widgets for interactive phylogenetic tree
-    visualization. This package wraps the JavaScript `heat-tree` package using
-    the htmlwidges package.
+    visualization. This package wraps the JavaScript heat-tree package using
+    the htmlwidgets R package.
 URL: https://grunwaldlab.github.io/heattree/
 License: MIT + file LICENSE
 Encoding: UTF-8
@@ -37,4 +37,3 @@ Suggests:
     knitr
 Config/Needs/website: rmarkdown
 Roxygen: list(markdown = TRUE)
-VignetteBuilder: knitr
