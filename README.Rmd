@@ -16,10 +16,19 @@ knitr::opts_chunk$set(
 <!-- badges: end -->
 
 This package makes it easy to visualize, manipulate, and export phylogenetic trees in R using an interactive viewer/editor.
-You can insert this tree viewer into Rmd/Quarto documents make your trees accessible online.
-See the full documentation [here](https://grunwaldlab.github.io/heattree/).
-For the python version of this package see [this documentation](https://grunwaldlab.github.io/heattree_py/).
-For the JavaScript library the is the foundation of this package see [this documentation](https://grunwaldlab.github.io/heat-tree/).
+You can use this tree viewer in all the same ways other plotting tools are used in R, including in R Markdown or Quarto documents to make your trees accessible online.
+
+For the **full documentation**, including interactive examples and tutorials, see:
+
+[https://grunwaldlab.github.io/heattree/](https://grunwaldlab.github.io/heattree/)
+
+For the **Python** version of this package see:
+
+[https://grunwaldlab.github.io/heattree_py/](https://grunwaldlab.github.io/heattree_py/)
+
+For the **JavaScript** library the is the foundation of this package see:
+
+[https://grunwaldlab.github.io/heat-tree/](https://grunwaldlab.github.io/heat-tree/).
 
 ## Installation
 

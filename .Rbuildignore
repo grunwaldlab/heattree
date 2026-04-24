@@ -18,3 +18,6 @@
 ^\.aider\.conf\.yml$
 ^\.aider\.input\.history$
 ^\.aider\.tags\.cache\.v4$
+^\.positai$
+^\.claude$
+^cran-comments\.md$

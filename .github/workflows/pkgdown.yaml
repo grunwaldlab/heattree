@@ -36,10 +36,6 @@ jobs:
           extra-packages: any::pkgdown, any::readr, any::webshot2, any::phytools, any::quarto, local::.
           needs: website
 
-      - name: Render README.Rmd for GitHub
-        run: rmarkdown::render("README.Rmd")
-        shell: Rscript {0}
-
       - name: Render index.Rmd for site
         run: rmarkdown::render("index.Rmd")
         shell: Rscript {0}

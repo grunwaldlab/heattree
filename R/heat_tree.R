@@ -55,8 +55,9 @@ df_to_tsv <- function(df, na_value = 'NA', row_name_col = 'row_names') {
 #'   a `phylo` object, or a list of such inputs. If a list is provided, its
 #'   names will be used to name trees.
 #' @param metadata Metadata associated with `tree`. Can be a `data.frame` or
-#'   `tibble` with a "node_id" column. If there are multiple trees (a list),
-#'   then a list of table of equal length is required. If a list is provided,
+#'   `tibble` with a column containing IDs matching the tree labels. The ID
+#'   column is detected automatically. If there are multiple trees (a list),
+#'   then a list of tables of equal length is required. If a list is provided,
 #'   its names will be used to name metadata tables.
 #' @param aesthetics A named character vector defining which metadata columns
 #'   are initially used to color/size tree parts. If there are multiple trees (a
@@ -195,7 +196,7 @@ heat_tree <- function(tree = NULL, metadata = NULL, aesthetics = NULL, width = N
         paste0("metadata ", i)
       }
 
-      # Convert row names to a column if present. TODO: remove once the JS `heat-tree` package does this via aesethetic settings
+      # Convert row names to a column if present. TODO: remove once the JS `heat-tree` package does this via aesthetic settings
       row_name_col <- 'row_names'
       if (! all(seq_len(nrow(metadata_df)) == rownames(metadata_df))) {
         if (row_name_col %in% colnames(metadata_df)) {

@@ -63,7 +63,7 @@ For the python version of this package see [this documentation](https://grunwald
 
 ## For JavaScript users
 
-For the JavaScript library the is the foundation of this package see [this documentation](https://grunwaldlab.github.io/heat-tree/).
+For the JavaScript library that is the foundation of this package see [this documentation](https://grunwaldlab.github.io/heat-tree/).
 
 ## Contributing and feedback
 

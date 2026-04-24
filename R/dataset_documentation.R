@@ -1,7 +1,7 @@
 #' A phylogeny from Bansal et al. 2021
 #'
 #' A core gene phylogeny from Bansal et al. 2021
-#' (https://doi.org/10.1016/j.ygeno.2021.09.021) included for use as an example
+#' (\doi{10.1016/j.ygeno.2021.09.021}) included for use as an example
 #' data set. This is the parsed version of the included "bansal_2021_tree.nwk"
 #' file.
 #'
@@ -18,7 +18,7 @@ NULL
 #' Isolate metadata from Bansal et al. 2021
 #'
 #' Isolate metadata from Bansal et al. 2021
-#' (https://doi.org/10.1016/j.ygeno.2021.09.021) included for use as an example
+#' (\doi{10.1016/j.ygeno.2021.09.021}) included for use as an example
 #' data set. This is the parsed version of the included "bansal_2021_metadata.tsv"
 #' file.
 #'
@@ -33,10 +33,10 @@ NULL
 NULL
 
 
-#' Isolate metadata from Weisberg et al. 2022
+#' Isolate metadata from Weisberg et al. 2020
 #'
-#' Isolate metadata from Weisberg et al. 2022
-#' (https://doi.org/10.1126/science.aba5256) included for use as an example data
+#' Isolate metadata from Weisberg et al. 2020
+#' (\doi{10.1126/science.aba5256}) included for use as an example data
 #' set. This is the parsed version of the included "weisberg_2020_metadata.tsv"
 #' file.
 #'
@@ -47,10 +47,10 @@ NULL
 #' @keywords data
 NULL
 
-#' A MLSA phylogeny from Weisberg et al. 2022
+#' A MLSA phylogeny from Weisberg et al. 2020
 #'
-#' A MLSA phylogeny from Weisberg et al. 2022
-#' (https://doi.org/10.1126/science.aba5256) included for use as an example
+#' A MLSA phylogeny from Weisberg et al. 2020
+#' (\doi{10.1126/science.aba5256}) included for use as an example
 #' data set. This is the parsed version of the included "weisberg_2020_mlsa.tre"
 #' file.
 #'
@@ -61,10 +61,10 @@ NULL
 #' @keywords data
 NULL
 
-#' A BEAST phylogeny from Weisberg et al. 2022
+#' A BEAST phylogeny from Weisberg et al. 2020
 #'
-#' A BEAST phylogeny from Weisberg et al. 2022
-#' (https://doi.org/10.1126/science.aba5256) included for use as an example
+#' A BEAST phylogeny from Weisberg et al. 2020
+#' (\doi{10.1126/science.aba5256}) included for use as an example
 #' data set. This is the parsed version of the included "weisberg_2020_beast.tre"
 #' file.
 #'

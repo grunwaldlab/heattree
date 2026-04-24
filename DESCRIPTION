@@ -1,10 +1,7 @@
 Package: heattree
 Type: Package
-Title: A wrapper for the javascript `heat-tree` package for interactive phylogenetic tree visualization widgets
+Title: A Self-Contained Widget for Interactive Phylogenetic Tree Visualization
 Version: 0.3.1
-Imports: 
-    ape,
-    htmlwidgets
 Authors@R: c(
     person(
       "Zachary", "Foster",
@@ -21,17 +18,23 @@ Authors@R: c(
     person("USDA Agricultural Research Service", role = c("fnd")
     )
   )
-Description: A self-contained widget for phylogenetic and taxonomic tree visualization with categorical and continuous variables associated with nodes and tips.
+Maintainer: Zachary Foster <zacharyfoster1989@gmail.com>
+Description: Creates self-contained widgets for interactive phylogenetic tree
+    visualization. This package wraps the JavaScript `heat-tree` package using
+    the htmlwidges package.
+URL: https://grunwaldlab.github.io/heattree/
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.3.3
 Depends: 
     R (>= 3.5)
-URL: https://grunwaldlab.github.io/heattree/
-Config/Needs/website: rmarkdown
-Roxygen: list(markdown = TRUE)
+Imports: 
+    ape,
+    htmlwidgets
 Suggests: 
     testthat (>= 3.0.0),
     knitr
-Config/testthat/edition: 3
+Config/Needs/website: rmarkdown
+Roxygen: list(markdown = TRUE)
+VignetteBuilder: knitr

@@ -7,14 +7,24 @@
 <!-- badges: end -->
 
 This package makes it easy to visualize, manipulate, and export
-phylogenetic trees in R using an interactive viewer/editor. You can
-insert this tree viewer into Rmd/Quarto documents make your trees
-accessible online. See the full documentation
-[here](https://grunwaldlab.github.io/heattree/). For the python version
-of this package see [this
-documentation](https://grunwaldlab.github.io/heattree_py/). For the
-JavaScript library the is the foundation of this package see [this
-documentation](https://grunwaldlab.github.io/heat-tree/).
+phylogenetic trees in R using an interactive viewer/editor. You can use
+this tree viewer in all the same ways other plotting tools are used in
+R, including in R Markdown or Quarto documents to make your trees
+accessible online.
+
+For the **full documentation**, including interactive examples and
+tutorials, see:
+
+<https://grunwaldlab.github.io/heattree/>
+
+For the **Python** version of this package see:
+
+<https://grunwaldlab.github.io/heattree_py/>
+
+For the **JavaScript** library the is the foundation of this package
+see:
+
+<https://grunwaldlab.github.io/heat-tree/>.
 
 ## Installation
 
@@ -62,7 +72,7 @@ heat_tree()
 You can also supply trees/metadata to plot when the widget in created.
 The following types of input data are currently supported:
 
-- Paths to newick files
+- Paths to Newick or Nexus files
 - Newick-formatted text (a character vector with a single item)
 - `phylo` objects from the `ape` package
 
@@ -177,7 +187,7 @@ heat_tree(
 
 The `heat_tree` widget is capable of managing multiple trees at once. To
 initialize a widget with multiple trees, supply lists of tree and
-metadata inputs. If metadata/aesthetics are also supplied they must a
+metadata inputs. If metadata/aesthetics are also supplied they must be a
 list as well that corresponds to the list of trees. For example:
 
 ``` r
