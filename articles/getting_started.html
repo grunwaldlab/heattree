@@ -37,6 +37,7 @@
     <li><a class="dropdown-item" href="../articles/getting_started.html">Getting started</a></li>
   </ul>
 </li>
+<li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul>
 <ul class="navbar-nav">
 <li class="nav-item"><form class="form-inline" role="search">
@@ -92,7 +93,7 @@ with no input:</p>
 <p>You can also supply trees/metadata to plot when the widget in
 created. The following types of input data are currently supported:</p>
 <ul>
-<li>Paths to newick files</li>
+<li>Paths to Newick or Nexus files</li>
 <li>Newick-formatted text (a character vector with a single item)</li>
 <li>
 <code>phylo</code> objects from the <code>ape</code> package</li>
@@ -102,7 +103,7 @@ three formats:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">weisberg_2020_mlsa_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">'extdata'</span>, <span class="st">'weisberg_2020_mlsa.tre'</span>, package <span class="op">=</span> <span class="st">'heattree'</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">weisberg_2020_mlsa_path</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "/tmp/RtmpBrIRzw/temp_libpath25ba1dd69651/heattree/extdata/weisberg_2020_mlsa.tre"</span></span>
+<span><span class="co">#&gt; [1] "/tmp/RtmpDx2vts/temp_libpath252546918c6c/heattree/extdata/weisberg_2020_mlsa.tre"</span></span>
 <span></span>
 <span><span class="va">weisberg_2020_mlsa_text</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readLines.html" class="external-link">readLines</a></span><span class="op">(</span><span class="va">weisberg_2020_mlsa_path</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/substr.html" class="external-link">substr</a></span><span class="op">(</span><span class="va">weisberg_2020_mlsa_text</span>, <span class="fl">1</span>, <span class="fl">100</span><span class="op">)</span><span class="op">)</span></span>
@@ -191,7 +192,7 @@ example, the layout can be changed to circular like so:</p>
 <p>The <code>heat_tree</code> widget is capable of managing multiple
 trees at once. To initialize a widget with multiple trees, supply lists
 of tree and metadata inputs. If metadata/aesthetics are also supplied
-they must a list as well that corresponds to the list of trees. For
+they must be a list as well that corresponds to the list of trees. For
 example:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/heat_tree.html">heat_tree</a></span><span class="op">(</span></span>

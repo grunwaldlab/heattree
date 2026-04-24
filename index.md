@@ -45,7 +45,7 @@ documentation](https://grunwaldlab.github.io/heattree_py/).
 
 ## For JavaScript users
 
-For the JavaScript library the is the foundation of this package see
+For the JavaScript library that is the foundation of this package see
 [this documentation](https://grunwaldlab.github.io/heat-tree/).
 
 ## Contributing and feedback

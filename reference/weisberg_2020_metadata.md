@@ -1,9 +1,9 @@
-# Isolate metadata from Weisberg et al. 2022
+# Isolate metadata from Weisberg et al. 2020
 
-Isolate metadata from Weisberg et al. 2022
-(https://doi.org/10.1126/science.aba5256) included for use as an example
-data set. This is the parsed version of the included
-"weisberg_2020_metadata.tsv" file.
+Isolate metadata from Weisberg et al. 2020
+([doi:10.1126/science.aba5256](https://doi.org/10.1126/science.aba5256)
+) included for use as an example data set. This is the parsed version of
+the included "weisberg_2020_metadata.tsv" file.
 
 ## Format
 

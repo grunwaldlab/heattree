@@ -33,7 +33,7 @@ heat_tree()
 You can also supply trees/metadata to plot when the widget in created.
 The following types of input data are currently supported:
 
-- Paths to newick files
+- Paths to Newick or Nexus files
 - Newick-formatted text (a character vector with a single item)
 - `phylo` objects from the `ape` package
 
@@ -43,7 +43,7 @@ three formats:
 ``` r
 weisberg_2020_mlsa_path <- system.file('extdata', 'weisberg_2020_mlsa.tre', package = 'heattree')
 print(weisberg_2020_mlsa_path)
-#> [1] "/tmp/RtmpBrIRzw/temp_libpath25ba1dd69651/heattree/extdata/weisberg_2020_mlsa.tre"
+#> [1] "/tmp/RtmpDx2vts/temp_libpath252546918c6c/heattree/extdata/weisberg_2020_mlsa.tre"
 
 weisberg_2020_mlsa_text <- readLines(weisberg_2020_mlsa_path)
 print(substr(weisberg_2020_mlsa_text, 1, 100))
@@ -142,7 +142,7 @@ heat_tree(
 
 The `heat_tree` widget is capable of managing multiple trees at once. To
 initialize a widget with multiple trees, supply lists of tree and
-metadata inputs. If metadata/aesthetics are also supplied they must a
+metadata inputs. If metadata/aesthetics are also supplied they must be a
 list as well that corresponds to the list of trees. For example:
 
 ``` r

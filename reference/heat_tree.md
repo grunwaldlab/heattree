@@ -28,9 +28,10 @@ heat_tree(
 - metadata:
 
   Metadata associated with `tree`. Can be a `data.frame` or `tibble`
-  with a "node_id" column. If there are multiple trees (a list), then a
-  list of table of equal length is required. If a list is provided, its
-  names will be used to name metadata tables.
+  with a column containing IDs matching the tree labels. The ID column
+  is detected automatically. If there are multiple trees (a list), then
+  a list of tables of equal length is required. If a list is provided,
+  its names will be used to name metadata tables.
 
 - aesthetics:
 

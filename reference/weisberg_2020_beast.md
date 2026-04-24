@@ -1,9 +1,9 @@
-# A BEAST phylogeny from Weisberg et al. 2022
+# A BEAST phylogeny from Weisberg et al. 2020
 
-A BEAST phylogeny from Weisberg et al. 2022
-(https://doi.org/10.1126/science.aba5256) included for use as an example
-data set. This is the parsed version of the included
-"weisberg_2020_beast.tre" file.
+A BEAST phylogeny from Weisberg et al. 2020
+([doi:10.1126/science.aba5256](https://doi.org/10.1126/science.aba5256)
+) included for use as an example data set. This is the parsed version of
+the included "weisberg_2020_beast.tre" file.
 
 ## Format
 

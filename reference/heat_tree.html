@@ -21,6 +21,7 @@
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/examples.html">Examples</a></li>
     <li><a class="dropdown-item" href="../articles/getting_started.html">Getting started</a></li>
   </ul></li>
+<li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
       </ul></div>
@@ -65,8 +66,9 @@ names will be used to name trees.</p></dd>
 
 <dt id="arg-metadata">metadata<a class="anchor" aria-label="anchor" href="#arg-metadata"></a></dt>
 <dd><p>Metadata associated with <code>tree</code>. Can be a <code>data.frame</code> or
-<code>tibble</code> with a "node_id" column. If there are multiple trees (a list),
-then a list of table of equal length is required. If a list is provided,
+<code>tibble</code> with a column containing IDs matching the tree labels. The ID
+column is detected automatically. If there are multiple trees (a list),
+then a list of tables of equal length is required. If a list is provided,
 its names will be used to name metadata tables.</p></dd>
 
 
