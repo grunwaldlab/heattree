@@ -10,7 +10,7 @@ format:
 ```{r include=FALSE}
 library(heattree)
 knitr::opts_chunk$set(
-  message = FALSE,
+  message = TRUE,
   collapse = TRUE,
   comment = "#>"
   )

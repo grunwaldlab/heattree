@@ -10,4 +10,9 @@ https://github.com/grunwaldlab/heattree/actions
 
 ### Winbuilder
 
-The service does not seem to be working right now.
+0 errors | 0 warnings | 1 note
+
+* checking CRAN incoming feasibility ... NOTE
+Maintainer: 'Zachary Foster <zacharyfoster1989@gmail.com>'
+
+New submission

@@ -92,16 +92,6 @@ df_to_tsv <- function(df, na_value = 'NA', row_name_col = 'row_names') {
 #' @export
 heat_tree <- function(tree = NULL, metadata = NULL, aesthetics = NULL, width = NULL, height = NULL, elementId = NULL, ...) {
 
-  # Use special default size settings for R markdown / Quarto documents
-  if (requireNamespace("knitr", quietly = TRUE) && knitr::is_html_output()) {
-    if (is.null(width)) {
-      width <- '100%'
-    }
-    if (is.null(height)) {
-      height <- '70vh'
-    }
-  }
-
   # Normalize tree input to a list
   validate_tree_input <- function(input) {
     if (inherits(input, "phylo")) {
@@ -249,13 +239,56 @@ heat_tree <- function(tree = NULL, metadata = NULL, aesthetics = NULL, width = N
     options = options
   )
 
+  # Determine sizing policy based on runtime environment
+  in_rstudio <- Sys.getenv("RSTUDIO") != ''
+  knitr_out_format <- knitr::opts_knit$get('out.format')
+  knitr_pandoc_to <- knitr::opts_knit$get('rmarkdown.pandoc.to')
+  in_knitr <- ! is.null(knitr_out_format)
+  in_knitr_markdown <- in_knitr && knitr_out_format %in% c('markdown', 'gfm', 'github_document') && ! startsWith(knitr_pandoc_to, 'html')
+  in_knitr_html <- in_knitr && knitr::is_html_output() && !in_knitr_markdown
+  if (interactive()) {
+    if (!in_rstudio && !in_knitr_html && is.null(width) && is.null(height)) {
+      sizing <- htmlwidgets::sizingPolicy(
+        browser.fill = TRUE,
+        browser.padding = 10,
+        defaultWidth = "100%",
+        defaultHeight = "100%"
+      )
+    } else {
+      sizing <- htmlwidgets::sizingPolicy(
+        padding = 3
+      )
+    }
+  } else {
+    if (in_knitr_markdown) {
+      sizing <- htmlwidgets::sizingPolicy(
+        padding = 2
+      )
+      if (is.null(height)) {
+        height <- '100vh'
+      }
+      if (is.null(width)) {
+        width <- 'calc(100% - 15px)'
+      }
+    } else {
+      sizing <- htmlwidgets::sizingPolicy()
+      if (is.null(height)) {
+        height <- '70vh'
+      }
+      if (is.null(width)) {
+        width <- '100%'
+      }
+    }
+  }
+
   htmlwidgets::createWidget(
     name = 'heat_tree',
     x = x,
     width = width,
     height = height,
     package = 'heattree',
-    elementId = elementId
+    elementId = elementId,
+    sizingPolicy = sizing
   )
 }
 

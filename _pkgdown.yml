@@ -2,3 +2,21 @@ url: https://grunwaldlab.github.io/heattree/
 
 template:
   bootstrap: 5
+
+navbar:
+  structure:
+    left:  [intro, reference, articles, tutorials, news]
+    right: [github, search]
+  components:
+    github:
+      icon: fa-github
+      href: https://github.com/grunwaldlab/heattree
+      aria-label: GitHub
+
+home:
+  sidebar:
+    structure: [authors, license, citation, source]
+    components:
+      source:
+        title: Source code
+        text: <a href="https://github.com/grunwaldlab/heattree" class="external-link">github.com/grunwaldlab/heattree</a>

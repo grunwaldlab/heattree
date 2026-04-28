@@ -22,6 +22,9 @@ with the package (e.g. `weisberg_2020_mlsa`), so you can try it out with
 minimal effort. After installing the packages, simply run the lines
 below to get an idea of how it works:
 
+[**See the “Getting Started” page for interactive
+examples**](articles/getting_started.html)
+
     library(heattree)
     heat_tree(
       tree = weisberg_2020_mlsa,
@@ -29,10 +32,7 @@ below to get an idea of how it works:
       aesthetics = c(tipLabelColor = 'host_type'),
       layout = 'circular')
 
-![](man/figures/unnamed-chunk-4-1.png)
-
-[**See the “Getting Started” page for interactive
-examples**](articles/getting_started.html)
+<img src="man/figures/unnamed-chunk-3-1.png" alt="Example output of the heattree R package"  />
 
 ## For Python / Jupyter Notebook users
 
@@ -41,7 +41,7 @@ documentation](https://grunwaldlab.github.io/heattree_py/).
 
 ## For JavaScript users
 
-For the JavaScript library the is the foundation of this package see
+For the JavaScript library that is the foundation of this package see
 [this documentation](https://grunwaldlab.github.io/heat-tree/).
 
 ## Contributing and feedback

@@ -4,13 +4,11 @@ output: md_document
 
 ```{r include=FALSE}
 library(heattree)
-fig_width = 850
-fig_height = 850
 knitr::opts_chunk$set(
   message = FALSE,
   collapse = TRUE,
-  fig.width = 10,
-  fig.height = 10,
+  fig.width = 9,
+  fig.height = 9,
   comment = "#>",
   fig.path = "man/figures/"
   )
@@ -37,7 +35,9 @@ devtools::install_github('grunwaldlab/heattree')
 The package includes example data sets that are automatically loaded with the package (e.g. `weisberg_2020_mlsa`), so you can try it out with minimal effort.
 After installing the packages, simply run the lines below to get an idea of how it works:
 
-```{r eval=FALSE}
+[**See the "Getting Started" page for interactive examples**](articles/getting_started.html)
+
+```{r fig.alt='Example output of the heattree R package'}
 library(heattree)
 heat_tree(
   tree = weisberg_2020_mlsa,
@@ -46,16 +46,6 @@ heat_tree(
   layout = 'circular')
 ```
 
-```{r echo=FALSE}
-heat_tree(
-  tree = weisberg_2020_mlsa,
-  metadata = weisberg_2020_metadata,
-  aesthetics = c(tipLabelColor = 'host_type'),
-  layout = 'circular', width = fig_width, height = fig_height)
-```
-
-
-[**See the "Getting Started" page for interactive examples**](articles/getting_started.html)
 
 ## For Python / Jupyter Notebook users
 

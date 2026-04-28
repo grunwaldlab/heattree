@@ -3,12 +3,14 @@ title: "Getting started"
 output:
   rmarkdown::html_vignette:
     toc: false
+vignette: >
+  %\VignetteIndexEntry{Getting started}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
 
 ```{r include=FALSE}
 library(heattree)
-fig_width = '100%'
-fig_height = '70vh'
 knitr::opts_chunk$set(
   message = FALSE,
   collapse = TRUE,
