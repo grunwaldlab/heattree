@@ -68,6 +68,14 @@ df_to_tsv <- function(df, na_value = 'NA', row_name_col = 'row_names') {
 #' @param ... Options passed to options parameter of the underlying `HeatTree.heatTree()` javascript
 #'   function to modify the initial state of the widget.
 #'
+#' @return An htmlwidget object of class `heat_tree` that renders an interactive
+#'   phylogenetic tree visualization. The object contains:
+#'   * `x`: A list with tree data and options passed to JavaScript
+#'   * `width`, `height`: Dimensions of the widget
+#'   * `elementId`: Optional DOM element ID
+#'
+#'   The widget can be displayed in R Markdown, Quarto, or using and IDE like RStudio.
+#'
 #' @examples
 #' # Create an empty tree viewer for loading data interactively
 #' heat_tree()
@@ -264,6 +272,13 @@ heat_tree <- function(tree = NULL, metadata = NULL, aesthetics = NULL, width = N
 #' @param env The environment in which to evaluate \code{expr}.
 #' @param quoted Is \code{expr} a quoted expression (with \code{quote()})? This
 #'   is useful if you want to save an expression in a variable.
+#'
+#' @return
+#'   `heat_treeOutput()` returns an output function that creates a Shiny UI element
+#'   for displaying a heat_tree widget. Used in the UI definition of a Shiny app.
+#'
+#'   `renderheat_tree()` returns a render function that can be assigned to an output
+#'   element in the server function of a Shiny app. It returns a Shiny render binding.
 #'
 #' @name heat_tree-shiny
 #'

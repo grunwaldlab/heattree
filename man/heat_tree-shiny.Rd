@@ -24,6 +24,13 @@ string and have \code{'px'} appended.}
 \item{quoted}{Is \code{expr} a quoted expression (with \code{quote()})? This
 is useful if you want to save an expression in a variable.}
 }
+\value{
+\code{heat_treeOutput()} returns an output function that creates a Shiny UI element
+for displaying a heat_tree widget. Used in the UI definition of a Shiny app.
+
+\code{renderheat_tree()} returns a render function that can be assigned to an output
+element in the server function of a Shiny app. It returns a Shiny render binding.
+}
 \description{
 Output and render functions for using heat_tree within Shiny
 applications and interactive Rmd documents.

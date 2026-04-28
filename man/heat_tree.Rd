@@ -38,6 +38,17 @@ list), then a list of equal length is required.}
 \item{...}{Options passed to options parameter of the underlying \code{HeatTree.heatTree()} javascript
 function to modify the initial state of the widget.}
 }
+\value{
+An htmlwidget object of class \code{'heat_tree'} that renders an interactive
+phylogenetic tree visualization. The object contains:
+\itemize{
+\item \code{x}: A list with tree data and options passed to JavaScript
+\item \code{width}, \code{height}: Dimensions of the widget
+\item \code{elementId}: Optional DOM element ID
+}
+
+The widget can be displayed in R Markdown, Shiny applications, or the R console.
+}
 \description{
 Create an interactive phylogenetic tree using the javascript \href{https://github.com/grunwaldlab/heat-tree}{heat-tree} package
 }
