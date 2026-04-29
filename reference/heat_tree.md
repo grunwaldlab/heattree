@@ -57,6 +57,20 @@ heat_tree(
   `HeatTree.heatTree()` javascript function to modify the initial state
   of the widget.
 
+## Value
+
+An htmlwidget object of class `heat_tree` that renders an interactive
+phylogenetic tree visualization. The object contains:
+
+- `x`: A list with tree data and options passed to JavaScript
+
+- `width`, `height`: Dimensions of the widget
+
+- `elementId`: Optional DOM element ID
+
+The widget can be displayed in R Markdown, Quarto, or using and IDE like
+RStudio.
+
 ## Examples
 
 ``` r

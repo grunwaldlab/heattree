@@ -35,3 +35,13 @@ renderheat_tree(expr, env = parent.frame(), quoted = FALSE)
   Is `expr` a quoted expression (with
   [`quote()`](https://rdrr.io/r/base/substitute.html))? This is useful
   if you want to save an expression in a variable.
+
+## Value
+
+`heat_treeOutput()` returns an output function that creates a Shiny UI
+element for displaying a heat_tree widget. Used in the UI definition of
+a Shiny app.
+
+`renderheat_tree()` returns a render function that can be assigned to an
+output element in the server function of a Shiny app. It returns a Shiny
+render binding.

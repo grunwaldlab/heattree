@@ -24,6 +24,9 @@ with the package (e.g. `weisberg_2020_mlsa`), so you can try it out with
 minimal effort. After installing the packages, simply run the lines
 below to get an idea of how it works:
 
+[**See the “Getting Started” page for interactive
+examples**](https://grunwaldlab.github.io/heattree/articles/getting_started.md)
+
 ``` R
 library(heattree)
 heat_tree(
@@ -33,10 +36,8 @@ heat_tree(
   layout = 'circular')
 ```
 
-![](reference/figures/unnamed-chunk-4-1.png)
-
-[**See the “Getting Started” page for interactive
-examples**](https://grunwaldlab.github.io/heattree/articles/getting_started.md)
+![Example output of the heattree R
+package](reference/figures/unnamed-chunk-3-1.png)
 
 ## For Python / Jupyter Notebook users
 

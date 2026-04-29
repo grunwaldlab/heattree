@@ -40,6 +40,7 @@
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul>
 <ul class="navbar-nav">
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/grunwaldlab/heattree" aria-label="GitHub"><span class="fa fa-github"></span></a></li>
 <li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json">
 </form></li>
@@ -103,7 +104,7 @@ three formats:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">weisberg_2020_mlsa_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">'extdata'</span>, <span class="st">'weisberg_2020_mlsa.tre'</span>, package <span class="op">=</span> <span class="st">'heattree'</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">weisberg_2020_mlsa_path</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "/tmp/RtmpbwQ6r6/temp_libpath251b361b1551/heattree/extdata/weisberg_2020_mlsa.tre"</span></span>
+<span><span class="co">#&gt; [1] "/tmp/Rtmpjxlfzi/temp_libpath23ff7568feef/heattree/extdata/weisberg_2020_mlsa.tre"</span></span>
 <span></span>
 <span><span class="va">weisberg_2020_mlsa_text</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readLines.html" class="external-link">readLines</a></span><span class="op">(</span><span class="va">weisberg_2020_mlsa_path</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/substr.html" class="external-link">substr</a></span><span class="op">(</span><span class="va">weisberg_2020_mlsa_text</span>, <span class="fl">1</span>, <span class="fl">100</span><span class="op">)</span><span class="op">)</span></span>

@@ -68,6 +68,8 @@ Code
 ``` r
 # Load required datasets from phytools
 library(phytools)
+#> Loading required package: ape
+#> Loading required package: maps
 data(anole.data)
 data(anoletree)
 data(bonyfish.data)
