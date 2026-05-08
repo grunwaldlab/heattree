@@ -6,6 +6,7 @@ minimal effort. After installing the packages, simply run the lines
 below to get an idea of how it works:
 
 ``` r
+
 library(heattree)
 heat_tree(
   tree = weisberg_2020_mlsa,
@@ -26,6 +27,7 @@ and metadata interactively, it is entirely valid to create a widget with
 no input:
 
 ``` r
+
 library(heattree)
 heat_tree()
 ```
@@ -41,9 +43,10 @@ For example, here is the test data included in the package in these
 three formats:
 
 ``` r
+
 weisberg_2020_mlsa_path <- system.file('extdata', 'weisberg_2020_mlsa.tre', package = 'heattree')
 print(weisberg_2020_mlsa_path)
-#> [1] "/tmp/Rtmpjxlfzi/temp_libpath23ff7568feef/heattree/extdata/weisberg_2020_mlsa.tre"
+#> [1] "/tmp/Rtmp13oP3f/temp_libpath253d2e9b40cd/heattree/extdata/weisberg_2020_mlsa.tre"
 
 weisberg_2020_mlsa_text <- readLines(weisberg_2020_mlsa_path)
 print(substr(weisberg_2020_mlsa_text, 1, 100))
@@ -64,6 +67,7 @@ print(weisberg_2020_mlsa)  # The already parsed version in the ape phylo format
 These three commands all produce the same plot:
 
 ``` r
+
 heat_tree(weisberg_2020_mlsa_path, manualZoomAndPanEnabled = FALSE)
 heat_tree(weisberg_2020_mlsa_text, manualZoomAndPanEnabled = FALSE)
 heat_tree(weisberg_2020_mlsa, manualZoomAndPanEnabled = FALSE)
@@ -80,6 +84,7 @@ so it can have any name. For example, this data is associated with the
 above example tree:
 
 ``` r
+
 weisberg_2020_metadata_path <- system.file('extdata', 'weisberg_2020_metadata.tsv', package = 'heattree')
 weisberg_2020_metadata <- readr::read_tsv(weisberg_2020_metadata_path)
 print(weisberg_2020_metadata)
@@ -108,6 +113,7 @@ correspond to which aesthetics. These two commands produce the same
 plot:
 
 ``` r
+
 heat_tree(
   tree = weisberg_2020_mlsa,
   metadata = weisberg_2020_metadata,
@@ -130,6 +136,7 @@ JavaScript package documentation can be used as optional parameters. For
 example, the layout can be changed to circular like so:
 
 ``` r
+
 heat_tree(
   tree = weisberg_2020_mlsa,
   metadata = weisberg_2020_metadata,
@@ -146,6 +153,7 @@ metadata inputs. If metadata/aesthetics are also supplied they must be a
 list as well that corresponds to the list of trees. For example:
 
 ``` r
+
 heat_tree(
   tree = list(
     'Weisberg 2020 MLSA' = weisberg_2020_mlsa,

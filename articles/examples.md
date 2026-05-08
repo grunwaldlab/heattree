@@ -13,6 +13,7 @@ transmission of agrobacterial virulence plasmids. Science 368, eaba5256
 Code
 
 ``` r
+
 library(heattree)
 
 data(weisberg_2020_metadata)
@@ -43,6 +44,7 @@ with Stenotrophomonas and Pseudoxanthomonas. Genomics, 113(6),
 Code
 
 ``` r
+
 library(heattree)
 
 data(bansal_2021_metadata)
@@ -66,6 +68,7 @@ widget.
 Code
 
 ``` r
+
 # Load required datasets from phytools
 library(phytools)
 #> Loading required package: ape
