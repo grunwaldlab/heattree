@@ -220,6 +220,12 @@ package](https://github.com/grunwaldlab/heat-tree) that implements them.
 
 MIT
 
+## Citation
+
+Please consdier citing: 
+
+> Foster, Zachary SL, Jeff H. Chang, and Niklaus J. Grunwald. "Heat-tree: Cross-platform software for interactive and embeddable phylogenetic tree visualization and editing." arXiv preprint arXiv:2605.01109 (2026).
+
 ## Contributing and feedback
 
 Contributions and feedback are welcome! Please visit the [GitHub
