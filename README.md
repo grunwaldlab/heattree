@@ -222,9 +222,9 @@ MIT
 
 ## Citation
 
-Please consdier citing: 
+Please consider citing: 
 
-> Foster, Zachary SL, Jeff H. Chang, and Niklaus J. Grunwald. "Heat-tree: Cross-platform software for interactive and embeddable phylogenetic tree visualization and editing." arXiv preprint arXiv:2605.01109 (2026).
+> Foster, Zachary SL, Jeff H. Chang, and Niklaus J. Grünwald. 2006. "Heat-tree: Cross-platform software for interactive and embeddable phylogenetic tree visualization and editing." arXiv preprint arXiv:2605.01109
 
 ## Contributing and feedback
 
